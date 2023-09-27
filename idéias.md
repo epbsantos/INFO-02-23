@@ -6,7 +6,6 @@
 
 ## Animais em extinção no Brasil 
 
-~~~[titulo](url)
 
 - [Extinção no brasil](https://valor.globo.com/brasil/noticia/2023/05/24/sabe-que-especies-estao-ameacadas-de-extincao-no-brasil-confira-alguns-exemplos.ghtml)
 
