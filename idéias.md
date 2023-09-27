@@ -35,4 +35,4 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 [PROGRAMA DE COLETA SELETIVA - Santa Helena / PR](https://2013-2016-indicadores.cidadessustentaveis.org.br/br/PR/santa-helena/boa-pratica/295/programa-de-coleta-seletiva)
 
 
-Imagens e videos interativos de como é feita a separação dos diferente materiais coletados. 
+Imagens e videos interativos de como é feita a separação dos diferentes materiais coletados. 
