@@ -1,4 +1,6 @@
-# Estrutura
+# Estrutura (sugestão)
+- Visual (equipes)
+- Qualidade do conteúdo (ex: sem ref, preparar um grático)
 
 
 
