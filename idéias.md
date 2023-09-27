@@ -27,11 +27,11 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 
 - [Gráficos que mostram que mais da metade das emissões de C02 ocorreram nos últimos 30 anos](https://www.bbc.com/portuguese/geral-59013520)
 
-- [Emissão de CO2 tópicos gerais](https://ourworldindata.org/co2-emissions)
+- [EN-Emissão de CO2 tópicos gerais](https://ourworldindata.org/co2-emissions)
 
 ## Perigo do aumento da temperatura global 
 
-- [The Climate Emergency](https://www.rainforestcoalition.org/the-climate-emergency/?gclid=EAIaIQobChMI1I2Lu_XLgQMVdROzAB2nKw-VEAAYASAAEgI8n_D_BwE)
+- [EN-The Climate Emergency](https://www.rainforestcoalition.org/the-climate-emergency/?gclid=EAIaIQobChMI1I2Lu_XLgQMVdROzAB2nKw-VEAAYASAAEgI8n_D_BwE)
 
 ## Coleta Seletiva em Santa Helena
 - [PROGRAMA DE COLETA SELETIVA - Santa Helena / PR](https://2013-2016-indicadores.cidadessustentaveis.org.br/br/PR/santa-helena/boa-pratica/295/programa-de-coleta-seletiva)
