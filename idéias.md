@@ -20,3 +20,7 @@ Talvez colocar imagens de alguns e, ao passar o mouse por cima da imagem aparece
 Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o passar dos anos, junto com as principais causas.
 
 ## Projeto de meio ambiente Toledo
+
+## Emissões de carbono nos últimos 30 anos (dados de 2021)
+
+[Gráficos que mostram que mais da metade das emissões de C02 ocorreram nos últimos 30 anos](https://www.bbc.com/portuguese/geral-59013520)
