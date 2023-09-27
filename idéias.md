@@ -32,7 +32,7 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 [The Climate Emergency](https://www.rainforestcoalition.org/the-climate-emergency/?gclid=EAIaIQobChMI1I2Lu_XLgQMVdROzAB2nKw-VEAAYASAAEgI8n_D_BwE)
 
 ## Coleta Seletiva em Santa Helena
-[PROGRAMA DE COLETA SELETIVA - Santa Helena / PR] (https://2013-2016-indicadores.cidadessustentaveis.org.br/br/PR/santa-helena/boa-pratica/295/programa-de-coleta-seletiva)
+[PROGRAMA DE COLETA SELETIVA - Santa Helena / PR](https://2013-2016-indicadores.cidadessustentaveis.org.br/br/PR/santa-helena/boa-pratica/295/programa-de-coleta-seletiva)
 
 
 Imagens e videos interativos de como é feita a separação dos diferente materiais coletados. 
