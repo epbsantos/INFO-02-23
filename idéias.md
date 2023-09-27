@@ -27,6 +27,10 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 
 ## Projeto de meio ambiente Toledo
 
+- [Sanga Cerro Corá - Unioeste](http://www.diaadiaeducacao.pr.gov.br/portals/cadernospde/pdebusca/producoes_pde/2008_unioeste_geo_artigo_jose_odecio_langer.pdf)
+- [INQUÉRITO CIVIL - Danos ao meio ambiente](https://www.toledo.pr.gov.br/sites/default/files/paginabasica-2022-12/recomendacao_administrativa_01-2021_loteamento_sanga_cerro_cora_suspensao_anuencia_0.pdf)
+- [Limpeza na sanga](https://www.toledo.pr.gov.br/old/noticia/caminhada-e-limpeza-na-sanga-cerro-cora-recolhe-15-tonelada-de-lixo)
+- 
 ## Emissões de carbono nos últimos 30 anos (dados de 2021)
 
 - [Gráficos que mostram que mais da metade das emissões de C02 ocorreram nos últimos 30 anos](https://www.bbc.com/portuguese/geral-59013520)
