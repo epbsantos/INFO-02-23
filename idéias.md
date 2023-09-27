@@ -17,4 +17,6 @@ Talvez colocar imagens de alguns e, ao passar o mouse por cima da imagem aparece
 
 - [Camada de ozonio](https://www.cnnbrasil.com.br/tecnologia/camada-de-ozonio-deve-se-recuperar-completamente-nas-proximas-decadas/)
 
+Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o passar dos anos, junto com as principais causas.
+
 ## Projeto de meio ambiente Toledo
