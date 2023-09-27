@@ -26,3 +26,7 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 ## Emissões de carbono nos últimos 30 anos (dados de 2021)
 
 [Gráficos que mostram que mais da metade das emissões de C02 ocorreram nos últimos 30 anos](https://www.bbc.com/portuguese/geral-59013520)
+
+## Perigo do aumento da temperatura global 
+
+[The Climate Emergency](https://www.rainforestcoalition.org/the-climate-emergency/?gclid=EAIaIQobChMI1I2Lu_XLgQMVdROzAB2nKw-VEAAYASAAEgI8n_D_BwE)
