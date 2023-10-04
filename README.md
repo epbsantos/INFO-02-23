@@ -17,3 +17,4 @@
 - [flowtime.js](https://github.com/marcolago/flowtime.js)
 - [bespoke](https://github.com/bespokejs/bespoke)
 - [big](https://github.com/tmcw/big)
+- [shower](https://github.com/shower/shower)
