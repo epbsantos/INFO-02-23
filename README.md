@@ -8,7 +8,6 @@
 ## Plugins js
 
 ### Visual (layout)
-- [onepage-scroll](https://github.com/peachananr/onepage-scroll)
 - [fullpage.js](https://github.com/alvarotrigo/fullpage.js)
 - [pagePiling.js](https://github.com/alvarotrigo/pagePiling.js)
 - [Pageable](https://github.com/Mobius1/Pageable)
