@@ -14,3 +14,6 @@
 - [reveal.js](https://github.com/hakimel/reveal.js)
 - [impress.js](https://github.com/impress/impress.js)
 - [remark](https://github.com/gnab/remark)
+- [flowtime.js](https://github.com/marcolago/flowtime.js)
+- [bespoke](https://github.com/bespokejs/bespoke)
+- [big](https://github.com/tmcw/big)
