@@ -49,3 +49,9 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 
 
 Imagens e videos interativos de como é feita a separação dos diferentes materiais coletados. 
+
+## Integração API Tempo INMET
+
+Mostrar o histórico de informações do clima através de um determinado CEP.
+
+[API Tempo INMET](https://portal.inmet.gov.br/manual/manual-de-uso-da-api-esta%C3%A7%C3%B5es)
