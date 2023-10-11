@@ -53,5 +53,9 @@ Imagens e videos interativos de como é feita a separação dos diferentes mater
 ## Integração API Tempo INMET
 
 Mostrar o histórico de informações do clima através de um determinado CEP.
-
 [API Tempo INMET](https://portal.inmet.gov.br/manual/manual-de-uso-da-api-esta%C3%A7%C3%B5es)
+
+## O impacto dos agrotóxicos no meio ambiente
+- [O IMPACTO AMBIENTAL DO USO DE AGROTÓXICOS NO MEIO AMBIENTE E NA SAÚDE DOS TRABALHADORES RURAIS](https://periodicos.ufsm.br/revistadireito/article/view/8280)
+- [IMPACTOS DE AGROTÓXICOS SOBRE O MEIO AMBIENTE E A SAÚDE HUMANA](https://seer.sct.embrapa.br/index.php/cct/article/view/26296)
+
