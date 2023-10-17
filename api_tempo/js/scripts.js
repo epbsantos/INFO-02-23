@@ -1,3 +1,7 @@
+//variaveis de pesquisa de cep
+var pesquisaCEP, pesquisaRua, pesquisaBairro, pesquisaCidadeUf, pesquisaLatitude, pesquisaLongitude;
+
+
 // mascara para CEP no botão de pesquisa por cep
 const element = document.getElementById('CEP');
 const maskOptions = {
@@ -16,8 +20,20 @@ botaoPesquisar.addEventListener("click", function () {
             return response.json();
         })
         .then(function (data) {
-            //resultado.innerHTML = JSON.stringify(data, null, 2);
-            console.log(data);
+            temp = data;
+            pesquisaCEP = data.cep;
+            pesquisaRua = data.street;
+            pesquisaBairro = data.neighborhood;
+            pesquisaCidadeUf = data.city + "/" + data.state;
+            pesquisaLongitude = data.location.coordinates.longitude;
+            pesquisaLatitude = data.location.coordinates.latitude;
+
+            document.getElementById("respCep").innerHTML = pesquisaCEP;
+            document.getElementById("respRua").innerHTML = pesquisaRua;
+            document.getElementById("respBairro").innerHTML = pesquisaBairro;
+            document.getElementById("respCidadeUf").innerHTML = pesquisaCidadeUf;
+            document.getElementById("respLatitude").innerHTML = pesquisaLatitude;
+            document.getElementById("respLongitude").innerHTML = pesquisaLongitude;
         })
         .catch(function (error) {
             console.error("Ocorreu um erro:", error);
@@ -33,9 +49,8 @@ fetch("../resources/estacoes_automaticas.json")
         console.error("Erro ao carregar o arquivo JSON:", error);
     });
 
-console.log(estacoes);
 
-/*
+
 function calcularDistancia(lat1, lon1, lat2, lon2) {
     const raioTerra = 6371;
 
@@ -84,4 +99,4 @@ if (estacaoProxima) {
     );
 } else {
     console.log("Nenhuma estação encontrada na lista.");
-}*/
+}

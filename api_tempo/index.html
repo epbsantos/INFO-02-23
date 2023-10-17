@@ -32,7 +32,7 @@
 
             <div class="col-md-8 mb-5">
                 <div class="input-group mb-3">
-                    <input class="form-control form-control-lg" type="text" placeholder="CEP" id="CEP">
+                    <input class="form-control form-control-lg" type="text" placeholder="CEP" id="CEP" value="85903757">
                     <button class="btn btn-primary" type="button" id="pesquisa_cep">Pesquisar</button>
                 </div>
             </div>
@@ -41,14 +41,29 @@
         
             <div class="row g-5">
                 <div class="col-md-6">
-                    <h2>CEP informado: 09642-020</h2>
+                    <h2>CEP informado: <span id="respCep"></span></h2>
                     <p>O seguinte endereço foi encontrado:</p>
                     <ul class="icon-list">
-                        <li><strong>Rua: </strong>Nelson Patrizzi</li>
-                        <li><strong>Bairro: </strong>Rudge Ramos</li>
-                        <li><strong>Cidade/UF: </strong>São Bernardo do Campo/SP</li>
-                        <li><strong>Longitude: </strong>-49.0629788</li>
-                        <li><strong>Latitude: </strong>-23.681531</li>
+                        <li>
+                            <strong>Rua: </strong>
+                            <span id="respRua"></span>
+                        </li>
+                        <li>
+                            <strong>Bairro: </strong>
+                            <span id="respBairro"></span>
+                        </li>
+                        <li>
+                            <strong>Cidade/UF: </strong>
+                            <span id="respCidadeUf"></span>
+                        </li>
+                        <li>
+                            <strong>Longitude: </strong>
+                            <span id="respLatitude"></span>
+                        </li>
+                        <li>
+                            <strong>Latitude: </strong>
+                            <span id="respLatitude"></span>
+                        </li>
                     </ul>
                 </div>
 
