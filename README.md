@@ -8,6 +8,7 @@
 ## Plugins js
 
 ### Visual (layout)
+- [fullview.js](https://github.com/seeratawan01/fullview.js)
 - [fullpage.js](https://github.com/alvarotrigo/fullpage.js)
 - [pagePiling.js](https://github.com/alvarotrigo/pagePiling.js)
 - [Pageable](https://github.com/Mobius1/Pageable)
