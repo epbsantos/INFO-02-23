@@ -36,10 +36,8 @@
                     <button class="btn btn-primary" type="button" id="pesquisa_cep">Pesquisar</button>
                 </div>
             </div>
-
-            <hr class="mb-5">
         
-            <div class="row g-5">
+            <div class="row g-5 mb-5">
                 <div class="col-md-6">
                     <h2>CEP informado: <span id="respCep"></span></h2>
                     <p>O seguinte endereço foi encontrado:</p>
@@ -58,7 +56,7 @@
                         </li>
                         <li>
                             <strong>Longitude: </strong>
-                            <span id="respLatitude"></span>
+                            <span id="respLongitude"></span>
                         </li>
                         <li>
                             <strong>Latitude: </strong>
@@ -69,13 +67,26 @@
 
                 <div class="col-md-6">
                     <h2>Estação Automática</h2>
-                    <p>MAPA_GOOGLE</p>
+                    <p id="infoEstacao"></p>
                 </div>
             </div>
+
+            <div class="row g-5">
+                <h1>Selecione o período dos indicadores:</h1>
+
+                <div class="col-md-8 mb-5">
+                    <form class="d-flex">
+                        <input id="dateStart" class="form-control form-control-lg me-2" type="text" placeholder="Data Inicial" value="01/09/2023" disabled>
+                        <input id="dateEnd" class="form-control form-control-lg me-2" type="text" placeholder="Data Final" value="30/09/2023" disabled>
+                        <button id="searchButton" class="btn btn-primary" type="button" disabled>Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+            
         </main>
         
         <footer class="pt-5 my-5 text-muted border-top">
-            Desenvolvido por Cesar Fuentes e Matheus Weber - FRONT2 - &copy; 2023
+            Desenvolvido por Cesar Fuentes - a2568691 e Matheus Weber a2568764 - FRONT2 - &copy; 2023
         </footer>
     </div>
     
