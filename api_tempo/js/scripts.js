@@ -43,7 +43,7 @@ function encontrarEstacaoMaisProxima(latitude, longitude) {
 }
 
 // pega estações automaticas;
-fetch("../resources/estacoes_automaticas.json")
+fetch("../api_tempo/resources/estacoes_automaticas.json")
     .then((response) => response.json())
     .then((data) => {
         estacoes = data;
