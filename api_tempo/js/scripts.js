@@ -44,9 +44,9 @@ function encontrarEstacaoMaisProxima(latitude, longitude) {
 
 // pega estações automaticas;
 fetch("../resources/estacoes_automaticas.json")
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((data) => {
-        estacoes = data;
+        estacoes = JSON.parse(data);
     })
     .catch((error) => {
         console.error("Erro ao carregar o arquivo JSON:", error);
