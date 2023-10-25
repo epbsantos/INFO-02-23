@@ -46,6 +46,8 @@ Um carrossel que mostre/compare a camada de ozonio e sua destruição conforme o
 
 ## Coleta Seletiva em Santa Helena
 - [PROGRAMA DE COLETA SELETIVA - Santa Helena / PR](https://2013-2016-indicadores.cidadessustentaveis.org.br/br/PR/santa-helena/boa-pratica/295/programa-de-coleta-seletiva)
+- [index](https://github.com/epbsantos/INFO-02-23/blob/main/Coleta%20Seletiva%20SH/index.html)
+- 
 
 
 Imagens e videos interativos de como é feita a separação dos diferentes materiais coletados. 
