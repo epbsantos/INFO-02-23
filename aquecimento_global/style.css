@@ -5,3 +5,147 @@ body{
     background-color: #34424B;
     color: #ffffff;
 }
+
+/* Estilo personalizado para alinhar as seções */
+section {
+    padding: 20px;
+    margin: 30px;
+}
+
+section#texto {
+    width: 100%;
+    position: relative;
+    float: none; 
+    clear: both;
+    margin: 0 auto;
+}
+
+/* Estilo para as seções com id ímpar (lado esquerdo) */
+section:nth-child(odd) {
+    float: right;
+    width: 50%;
+    position: relative; 
+}
+
+/* Estilo para as seções com id par (lado direito) */
+section:nth-child(even) {
+    float: left;
+    width: 50%;
+    position: relative; 
+}
+
+.bg1 {
+    background-color: #F87E00;
+    position: relative;
+    padding-left: 60px; /* Deixa espaço para a elipse */
+}
+
+.bg1::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px;
+    background-image: url(img/Ellipse1.jpg); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; /* Ajusta a posição verticalmente */
+    left: -50px; /* Posiciona a imagem à esquerda */
+    transform: translateY(-50%); /* Centraliza a imagem na seção */
+}
+
+
+.bg2 {
+    background-color: #EFAF02;
+    position: relative;
+    padding-right: 65px;
+}
+
+.bg2::after {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse2.png); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    right: -50px; 
+    transform: translateY(-50%); /* Centraliza a imagem na seção */
+}
+
+.bg3 {
+    background-color: #7CAD01;
+    position: relative;
+    padding-left: 60px; /* Deixa espaço para a elipse */
+}
+
+.bg3::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse3.png);
+    background-size: cover; 
+    position: absolute;
+    top: 50%; /* Ajusta a posição verticalmente */
+    left: -50px; /* Posiciona a imagem à esquerda */
+    transform: translateY(-50%); /* Centraliza a imagem na seção */
+}
+
+.bg4 {
+    background-color: #137E76;
+    position: relative;
+    padding-right: 65px;
+}
+
+.bg4::after {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse4.png); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    right: -50px; 
+    transform: translateY(-50%); /* Centraliza a imagem na seção */
+}
+
+.bg5 {
+    background-color: #017FB2;
+    position: relative;
+    padding-left: 60px; /* Deixa espaço para a elipse */
+}
+
+.bg5::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse5.png);
+    background-size: cover; 
+    position: absolute;
+    top: 50%; /* Ajusta a posição verticalmente */
+    left: -50px; /* Posiciona a imagem à esquerda */
+    transform: translateY(-50%); /* Centraliza a imagem na seção */
+}
+
+.bg6 {
+    background-color: #8215b4;
+}
+
+p {
+    text-align: justify;
+    text-indent: 2em;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Posição vertical no meio das seções */
+    width: 2px; /* Largura da linha vertical */
+    background-color: #ffffff; /* Cor da linha */
+    margin-top: 10vh; /* faz ela nao aparecer por cima do texto */
+    margin-left: -1px; /* Ajusta a posição central da linha */
+}
