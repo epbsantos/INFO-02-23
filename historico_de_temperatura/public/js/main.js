@@ -69,6 +69,13 @@ $(document).ready(function () {
         maxDate: 0
     });
 
+    $('.datepicker').on('change', (e) => {
+        const date = new Date(e.target.value.split('/').reverse().join('-'));
+        if (!(date instanceof Date && !isNaN(date))) {
+            e.target.value = "";
+        }
+    });
+
     $('#filtersForm').on('submit', (e) => {
         e.preventDefault();
         const idCity = $('#citySelect').val();
@@ -81,8 +88,10 @@ $(document).ready(function () {
                     const city = result.find((value) => value.addresstype == "municipality");
                     const lat = city.lat;
                     const lon = city.lon;
+                    const startDate = $('#startDate').val().split('/').reverse().join('-');
+                    const endDate = $('#endDate').val().split('/').reverse().join('-');
                     $.ajax({
-                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=2023-10-11&end_date=2023-10-25&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
+                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
                             console.log(result)
                         }
                     });
