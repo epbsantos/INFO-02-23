@@ -236,7 +236,7 @@ searchButton.addEventListener("click", function () {
                 const tempMax = parseFloat(leitura.TEMP_MAX);
                 const umidade_ = parseInt(leitura.UMID_MIN);
                 const precipitacao_ = parseFloat(leitura.CHUVA);
-                const vento_ = parseFloat(leitura.VEL_VENTO_MED);
+                const vento_ = parseFloat(leitura.VEL_VENTO_MED * 3.6);
     
                 temp_media.push(tempMed);
                 temp_min.push(tempMin);
