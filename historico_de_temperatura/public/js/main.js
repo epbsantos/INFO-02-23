@@ -2,7 +2,7 @@ $(document).ready(function () {
     const mapState = new Map();
     const mapCity = new Map();
 
-    $('.form-select').select2({
+    $('.select2').select2({
         placeholder: 'Selecione'
     });
     $.ajax({
@@ -48,6 +48,27 @@ $(document).ready(function () {
         }
     });
 
+    $('.datepicker').datepicker({
+        closeText: 'Fechar',
+        prevText: '<Anterior',
+        nextText: 'Próximo>',
+        currentText: 'Hoje',
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+            'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        dayNames: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        maxDate: 0
+    });
+
     $('#filtersForm').on('submit', (e) => {
         e.preventDefault();
         const idCity = $('#citySelect').val();
@@ -58,9 +79,16 @@ $(document).ready(function () {
             $.ajax({
                 url: `https://nominatim.openstreetmap.org/search.php?q=${city.nome},${state.nome}&format=jsonv2`, success: (result) => {
                     const city = result.find((value) => value.addresstype == "municipality");
-                    console.log(city.lat, city.lon);
+                    const lat = city.lat;
+                    const lon = city.lon;
+                    $.ajax({
+                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=2023-10-11&end_date=2023-10-25&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
+                            console.log(result)
+                        }
+                    });
                 }
             });
+
         }
     });
 });

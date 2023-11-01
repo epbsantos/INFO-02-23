@@ -13,8 +13,12 @@
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
 
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
   <!-- select2 -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -32,11 +36,31 @@
           <div class="row mb-3">
             <div class="col-6">
               <label for="stateSelect" class="form-label text-light">Estado</label>
-              <select id="stateSelect" class="form-select w-100 border border-primary" aria-label="Seleção de Estado"></select>
+              <select id="stateSelect" class="form-select w-100 select2 border border-primary" aria-label="Seleção de Estado"></select>
             </div>
             <div class="col-6">
               <label for="citySelect" class="form-label text-light">Cidade</label>
-              <select id="citySelect" class="form-select w-100" aria-label="Seleção de Cidade"></select>
+              <select id="citySelect" class="form-select w-100 select2" aria-label="Seleção de Cidade"></select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-6">
+              <label for="startDate" class="form-label">Data de inicío</label>
+              <input
+                id="startDate"
+                type="text"
+                class="form-input w-100 datepicker"
+                aria-label="Seleção de Estado"
+              ></input>
+            </div>
+            <div class="col-6">
+              <label for="endDate" class="form-label">Data de fim</label>
+              <input
+                id="endDate"
+                type="text"
+                class="form-input w-100 datepicker"
+                aria-label="Seleção de Cidade"
+              ></input>
             </div>
           </div>
           <div class="d-flex justify-content-end">
