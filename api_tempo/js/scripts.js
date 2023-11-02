@@ -53,7 +53,12 @@ fetch("https://epbsantos.github.io/INFO-02-23/api_tempo/resources/estacoes_autom
     });
 
 //variaveis de pesquisa de cep
-var pesquisaCEP, pesquisaRua, pesquisaBairro, pesquisaCidadeUf, pesquisaLatitude, pesquisaLongitude, estacaoProxima, leituras;
+var pesquisaCEP, pesquisaRua, pesquisaBairro, pesquisaCidadeUf, pesquisaLatitude, pesquisaLongitude, estacaoProxima;
+
+//variaveis para grafico
+var leituras;
+var temp_max = [], temp_min = [], temp_media = [];
+var umidade = [], precipitacao = [], vento = [];
 
 
 // mascara para CEP no botão de pesquisa por cep
@@ -71,6 +76,25 @@ const maskOptions2 = {
 };
 const mask2 = IMask(element2, maskOptions2);
 const mask3 = IMask(element3, maskOptions2);
+
+function map(latitudeCep, longitudeCep, latitudeEstacao, longitudeEstacao){
+    
+    // Cria um mapa e o exibe no elemento com o ID "map"
+    var map = L.map('map').setView([latitudeEstacao, longitudeEstacao], 15);
+    
+    // Adicione uma camada de azulejos do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    }).addTo(map);
+    
+    // Adicione um marcador no mapa
+    L.marker([latitudeCep, longitudeCep]).addTo(map)
+        .bindPopup('CEP');
+
+    // Adicione um marcador no mapa
+    L.marker([latitudeEstacao, longitudeEstacao]).addTo(map)
+        .bindPopup('Estação')
+        .openPopup();
+}
 
 // captura click em pesquisar cep
 var botaoPesquisar = document.getElementById("pesquisa_cep");
@@ -99,6 +123,8 @@ botaoPesquisar.addEventListener("click", function () {
 
             estacaoProxima = encontrarEstacaoMaisProxima(pesquisaLatitude, pesquisaLongitude);
 
+            map(pesquisaLatitude, pesquisaLongitude, estacaoProxima.estacao.VL_LATITUDE, estacaoProxima.estacao.VL_LONGITUDE);
+
             if (estacaoProxima) {
                 document.getElementById("infoEstacao").innerHTML = "<strong>Estação: </strong>" + 
                                     estacaoProxima.estacao.DC_NOME + 
@@ -120,6 +146,82 @@ botaoPesquisar.addEventListener("click", function () {
         });
 });
 
+function atualizaGraficoTemperatura(){
+    const graficoExistente = Chart.getChart('graficoTemperatura');
+    if (graficoExistente) {
+        graficoExistente.destroy();
+    }
+
+    var ctx1 = document.getElementById('graficoTemperatura').getContext('2d');
+  
+    var dados1 = {
+        labels: Array.from({ length: temp_max.length }, (_, i) => (i + 1).toString()), 
+        datasets: [
+            {
+                label: 'Temperatura Máxima (°C)',
+                data: temp_max,
+                borderColor: 'rgba(255, 0, 0, 1)',
+                fill: false
+            },
+            {
+                label: 'Temperatura Mínima (°C)',
+                data: temp_min,
+                borderColor: 'rgba(0, 0, 255, 1)',
+                fill: false
+            },
+            {
+                label: 'Temperatura Média (ºC)',
+                data: temp_media,
+                borderColor: 'rgba(255, 165, 0, 1)',
+                fill: false
+            } 
+        ]
+    };
+  
+    var graficoTemperatura = new Chart(ctx1, {
+        type: 'line',
+        data: dados1
+    });
+}
+
+function atualizaGraficoOutros() {
+    const graficoExistente = Chart.getChart('graficoTempUmidadePrecipitacaoVento');
+    if (graficoExistente) {
+        graficoExistente.destroy();
+    }
+
+    var ctx2 = document.getElementById('graficoTempUmidadePrecipitacaoVento').getContext('2d');
+
+    var dados2 = {
+        labels: Array.from({ length: leituras.length }, (_, i) => (i + 1).toString()), 
+        datasets: [
+        {
+            label: 'Umidade (%)',
+            data: umidade, 
+            borderColor: 'rgba(0, 128, 0, 1)',
+            fill: false
+        },
+        {
+            label: 'Precipitação (mm)',
+            data: precipitacao, 
+            borderColor: 'rgba(0, 0, 128, 1)',
+            fill: false
+        },
+        {
+            label: 'Velocidade do Vento (km/h)',
+            data: vento,
+            borderColor: 'rgba(128, 0, 128, 1)',
+            fill: false
+        }
+        ]
+    };
+  
+    var graficoTempUmidadePrecipitacaoVento = new Chart(ctx2, {
+        type: 'line',
+        data: dados2
+    });
+}
+
 var searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", function () {
     dataInicio = document.getElementById('dateStart').value;
@@ -140,100 +242,35 @@ searchButton.addEventListener("click", function () {
         })
         .then(function (data) {
             leituras = data;
-            console.log(leituras, estacaoProxima);
+
+            temp_max = [];
+            temp_media = [];
+            temp_min = [];
+            umidade = [];
+            precipitacao = [];
+            vento = [];
+
+
+            leituras.forEach(leitura => {
+                const tempMed = parseFloat(leitura.TEMP_MED);
+                const tempMin = parseFloat(leitura.TEMP_MIN);
+                const tempMax = parseFloat(leitura.TEMP_MAX);
+                const umidade_ = parseInt(leitura.UMID_MIN);
+                const precipitacao_ = parseFloat(leitura.CHUVA);
+                const vento_ = parseFloat(leitura.VEL_VENTO_MED * 3.6);
+    
+                temp_media.push(tempMed);
+                temp_min.push(tempMin);
+                temp_max.push(tempMax);
+                umidade.push(umidade_);
+                precipitacao.push(precipitacao_);
+                vento.push(vento_);
+            });
+            atualizaGraficoTemperatura();
+            atualizaGraficoOutros();
         })
         .catch(function (error) {
             console.error("Ocorreu um erro:", error);
         });
 });
-
-function atualizarGraficoComDados(dados) {
-    if (graficoTemperatura) {
-      graficoTemperatura.data.datasets[0].data = dados.temperaturaMaxima;
-      graficoTemperatura.data.datasets[1].data = dados.temperaturaMinima;
-  
-      graficoTemperatura.update();
-    }
-  }
-  function obterDadosDaAPI() {
-    const apiUrl = ""; // Adicionar API clima
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        atualizarGraficoComDados(data);
-      })
-      .catch((error) => {
-        console.error("Erro ao obter dados da API:", error);
-      });
-  }
-  const botaoAtualizarGrafico = document.getElementById("atualizarGrafico");
-  botaoAtualizarGrafico.addEventListener("click", obterDadosDaAPI);
-  
-
-  var ctx1 = document.getElementById('graficoTemperatura').getContext('2d');
-  
-  var dados1 = {
-    labels: Array.from({ length: 31 }, (_, i) => (i + 1).toString()), 
-    datasets: [
-      {
-        label: 'Temperatura Máxima (°C)',
-        data: [],
-        borderColor: 'rgba(255, 0, 0, 1)',
-        fill: false
-      },
-      {
-        label: 'Temperatura Mínima (°C)',
-        data: [],
-        borderColor: 'rgba(0, 0, 255, 1)',
-        fill: false
-      }
-    ]
-  };
-  
-  // Calcular a média com base nas temperaturas máximas e mínimas
-  var mediaTemperaturas = dados1.datasets[0].data.map((tempMax, index) => (tempMax + dados1.datasets[1].data[index]) / 2);
-  dados1.datasets.push({
-    label: 'Média (°C)',
-    data: mediaTemperaturas,
-    borderColor: 'rgba(0, 128, 0, 1)', 
-    fill: false
-  });
-  var graficoTemperatura = new Chart(ctx1, {
-    type: 'line',
-    data: dados1
-  });
-
-  obterDadosDaAPI();
-
-  // Gráfico de Umidade, Precipitação e Velocidade do Vento
-  var ctx2 = document.getElementById('graficoTempUmidadePrecipitacaoVento').getContext('2d');
-
-  var dados2 = {
-    labels: Array.from({ length: 31 }, (_, i) => (i + 1).toString()), 
-    datasets: [
-      {
-        label: 'Umidade (%)',
-        data: [], 
-        borderColor: 'rgba(0, 128, 0, 1)',
-        fill: false
-      },
-      {
-        label: 'Precipitação (mm)',
-        data: [], 
-        borderColor: 'rgba(0, 0, 128, 1)',
-        fill: false
-      },
-      {
-        label: 'Velocidade do Vento (km/h)',
-        data: [],
-        borderColor: 'rgba(128, 0, 128, 1)',
-        fill: false
-      }
-    ]
-  };
-  
-  var graficoTempUmidadePrecipitacaoVento = new Chart(ctx2, {
-    type: 'line',
-    data: dados2
-  });
   
