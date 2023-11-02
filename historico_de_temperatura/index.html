@@ -21,6 +21,9 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <!-- validation -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
     <!-- datepicker -->
     <link
       rel="stylesheet"
@@ -64,6 +67,7 @@
                 >
                 <select
                   id="stateSelect"
+                  name="state"
                   class="form-select w-100 select2"
                   aria-label="Seleção de Estado"
                 ></select>
@@ -74,6 +78,7 @@
                 >
                 <select
                   id="citySelect"
+                  name="city"
                   class="form-select w-100 select2"
                   aria-label="Seleção de Cidade"
                 ></select>
@@ -86,6 +91,7 @@
                 >
                 <input
                   id="startDate"
+                  name="startDate"
                   type="text"
                   placeholder="DD/MM/YYYY"
                   class="form-input w-100 datepicker rounded-2"
@@ -97,6 +103,7 @@
                 >
                 <input
                   id="endDate"
+                  name="endDate"
                   type="text"
                   placeholder="DD/MM/YYYY"
                   class="form-input w-100 datepicker rounded-2"
@@ -111,7 +118,7 @@
           </form>
         </div>
       </section>
-      <section id="data">
+      <section id="dataPresentation">
         <div class="container-lg py-5">
           <canvas id="lineChart"></canvas>
         </div>

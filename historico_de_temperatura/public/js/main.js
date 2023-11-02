@@ -1,6 +1,64 @@
+import { fDateUTC, fDateBR } from './util.js'
+import LineChart from './lineChart.js';
+
 $(document).ready(function () {
     const mapState = new Map();
     const mapCity = new Map();
+
+    const canvasLineChart = document.getElementById('lineChart');
+    const lineChart = new LineChart(canvasLineChart);
+
+    $.validator.addMethod('compareDates', () => {
+        const startDate = new Date(fDateUTC($('#startDate').val()));
+        const endDate = new Date(fDateUTC($('#endDate').val()));
+        if (startDate.getTime() > endDate.getTime()) {
+            return false;
+        }
+        return true;
+    });
+
+    $("#filtersForm").validate({
+        rules: {
+            state: {
+                required: true,
+            },
+            city: {
+                required: true,
+            },
+            startDate: {
+                required: true,
+                compareDates: true,
+            },
+            endDate: {
+                required: true,
+                compareDates: true,
+            },
+        },
+        messages: {
+            state: {
+                required: 'Selecione um estado!',
+            },
+            city: {
+                required: 'Selecione uma cidade!',
+            },
+            startDate: {
+                required: 'Defina uma data de inicío!',
+                compareDates: 'Data inícial deve ser menor que a final!',
+            },
+            endDate: {
+                required: 'Defina uma data de fim!',
+                compareDates: 'Data final deve ser maior que a inícial!',
+            },
+        },
+        errorPlacement: (label, element) => {
+            label.addClass('text-warning');
+            if (element.hasClass('select2-hidden-accessible')) {
+                element = element.next('.select2-container');
+            }
+            label.insertAfter(element);
+        },
+    });
+
 
     $('.select2').select2({
         placeholder: 'Selecione'
@@ -69,10 +127,17 @@ $(document).ready(function () {
         maxDate: 0
     });
 
+
     $('.datepicker').on('change', (e) => {
-        const date = new Date(e.target.value.split('/').reverse().join('-'));
+        const date = new Date(fDateUTC(e.target.value));
         if (!(date instanceof Date && !isNaN(date))) {
             e.target.value = "";
+        } else {
+            const endDatepiker = $.datepicker._getInst(document.getElementById('endDate'));
+            if (e.target.id == 'startDate') {
+                date.setDate(date.getDate() + 1);
+                endDatepiker.settings.minDate = date;
+            }
         }
     });
 
@@ -88,11 +153,17 @@ $(document).ready(function () {
                     const city = result.find((value) => value.addresstype == "municipality");
                     const lat = city.lat;
                     const lon = city.lon;
-                    const startDate = $('#startDate').val().split('/').reverse().join('-');
-                    const endDate = $('#endDate').val().split('/').reverse().join('-');
+                    const startDate = fDateUTC($('#startDate').val());
+                    const endDate = fDateUTC($('#endDate').val());
                     $.ajax({
                         url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
-                            console.log(result)
+                            const daily = result.daily;
+                            const temp_mean = daily.temperature_2m_mean;
+                            const time = daily.time;
+
+                            const data = temp_mean.filter(temp => temp != null);
+                            const label = time.slice(0, data.length).map(date => fDateBR(date));
+                            lineChart.update(data, label);
                         }
                     });
                 }
@@ -102,23 +173,3 @@ $(document).ready(function () {
     });
 });
 
-const lineChart = document.getElementById('lineChart');
-const data = {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-    }]
-};
-const config = {
-    type: 'line',
-    data: data,
-};
-const stackedLine = new Chart(lineChart, {
-    type: 'line',
-    data: data,
-});
