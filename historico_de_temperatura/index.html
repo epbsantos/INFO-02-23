@@ -36,7 +36,7 @@
           <div class="row mb-3">
             <div class="col-6">
               <label for="stateSelect" class="form-label text-light">Estado</label>
-              <select id="stateSelect" class="form-select w-100 select2 border border-primary" aria-label="Seleção de Estado"></select>
+              <select id="stateSelect" class="form-select w-100 select2 " aria-label="Seleção de Estado"></select>
             </div>
             <div class="col-6">
               <label for="citySelect" class="form-label text-light">Cidade</label>
@@ -45,21 +45,21 @@
           </div>
           <div class="row mb-3">
             <div class="col-6">
-              <label for="startDate" class="form-label">Data de inicío</label>
+              <label for="startDate" class="form-label text-light">Data de inicío</label>
               <input
                 id="startDate"
                 type="text"
+                placeholder="DD/MM/YYYY"
                 class="form-input w-100 datepicker"
-                aria-label="Seleção de Estado"
               ></input>
             </div>
             <div class="col-6">
-              <label for="endDate" class="form-label">Data de fim</label>
+              <label for="endDate" class="form-label text-light">Data de fim</label>
               <input
                 id="endDate"
                 type="text"
+                placeholder="DD/MM/YYYY"
                 class="form-input w-100 datepicker"
-                aria-label="Seleção de Cidade"
               ></input>
             </div>
           </div>
@@ -69,10 +69,12 @@
           </form>
       </div>
     </section>
-    <footer class="fixed-bottom ">
-      <div class="bg-black">
-        <p class="ps-5 py-2 mt-5 mb-0  text-light fs-4  ">APIs uilizadas: </p>
-        
+    <footer class="fixed-bottom">
+      <div class="bg-black py-3 text-center">
+        <p class="ps-5 mt-5 mb-0 pb-3 text-light fs-3 fw-bold">APIs uilizadas: </p>
+        <p><a class="ps-5 mb-3 link-opacity-50-hover link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://nominatim.openstreetmap.org/ui/search.html">Nominatim</a></p>
+        <p><a class="ps-5 mb-3 link-opacity-50-hover link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://open-meteo.com/en/docs/historical-weather-api#start_date=2000-01-01&end_date=2005-12-31&timezone=America%2FSao_Paulo">Open-Meteo</a></p>
+        <p><a class="ps-5 mb-3 link-opacity-50-hover link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://servicodados.ibge.gov.br/api/docs/localidades">API de localidades</a></p>
       </div>
     </footer>
   </div>
