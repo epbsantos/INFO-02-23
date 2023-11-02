@@ -146,3 +146,94 @@ searchButton.addEventListener("click", function () {
             console.error("Ocorreu um erro:", error);
         });
 });
+
+function atualizarGraficoComDados(dados) {
+    if (graficoTemperatura) {
+      graficoTemperatura.data.datasets[0].data = dados.temperaturaMaxima;
+      graficoTemperatura.data.datasets[1].data = dados.temperaturaMinima;
+  
+      graficoTemperatura.update();
+    }
+  }
+  function obterDadosDaAPI() {
+    const apiUrl = ""; // Adicionar API clima
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        atualizarGraficoComDados(data);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter dados da API:", error);
+      });
+  }
+  const botaoAtualizarGrafico = document.getElementById("atualizarGrafico");
+  botaoAtualizarGrafico.addEventListener("click", obterDadosDaAPI);
+  
+
+  var ctx1 = document.getElementById('graficoTemperatura').getContext('2d');
+  
+  var dados1 = {
+    labels: Array.from({ length: 31 }, (_, i) => (i + 1).toString()), 
+    datasets: [
+      {
+        label: 'Temperatura Máxima (°C)',
+        data: [],
+        borderColor: 'rgba(255, 0, 0, 1)',
+        fill: false
+      },
+      {
+        label: 'Temperatura Mínima (°C)',
+        data: [],
+        borderColor: 'rgba(0, 0, 255, 1)',
+        fill: false
+      }
+    ]
+  };
+  
+  // Calcular a média com base nas temperaturas máximas e mínimas
+  var mediaTemperaturas = dados1.datasets[0].data.map((tempMax, index) => (tempMax + dados1.datasets[1].data[index]) / 2);
+  dados1.datasets.push({
+    label: 'Média (°C)',
+    data: mediaTemperaturas,
+    borderColor: 'rgba(0, 128, 0, 1)', 
+    fill: false
+  });
+  var graficoTemperatura = new Chart(ctx1, {
+    type: 'line',
+    data: dados1
+  });
+
+  obterDadosDaAPI();
+
+  // Gráfico de Umidade, Precipitação e Velocidade do Vento
+  var ctx2 = document.getElementById('graficoTempUmidadePrecipitacaoVento').getContext('2d');
+
+  var dados2 = {
+    labels: Array.from({ length: 31 }, (_, i) => (i + 1).toString()), 
+    datasets: [
+      {
+        label: 'Umidade (%)',
+        data: [], 
+        borderColor: 'rgba(0, 128, 0, 1)',
+        fill: false
+      },
+      {
+        label: 'Precipitação (mm)',
+        data: [], 
+        borderColor: 'rgba(0, 0, 128, 1)',
+        fill: false
+      },
+      {
+        label: 'Velocidade do Vento (km/h)',
+        data: [],
+        borderColor: 'rgba(128, 0, 128, 1)',
+        fill: false
+      }
+    ]
+  };
+  
+  var graficoTempUmidadePrecipitacaoVento = new Chart(ctx2, {
+    type: 'line',
+    data: dados2
+  });
+  
