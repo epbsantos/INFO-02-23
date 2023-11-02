@@ -77,6 +77,25 @@ const maskOptions2 = {
 const mask2 = IMask(element2, maskOptions2);
 const mask3 = IMask(element3, maskOptions2);
 
+function map(latitudeCep, longitudeCep, latitudeEstacao, longitudeEstacao){
+    
+    // Cria um mapa e o exibe no elemento com o ID "map"
+    var map = L.map('map').setView([latitudeEstacao, longitudeEstacao], 15);
+    
+    // Adicione uma camada de azulejos do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    }).addTo(map);
+    
+    // Adicione um marcador no mapa
+    L.marker([latitudeCep, longitudeCep]).addTo(map)
+        .bindPopup('CEP');
+
+    // Adicione um marcador no mapa
+    L.marker([latitudeEstacao, longitudeEstacao]).addTo(map)
+        .bindPopup('Estação')
+        .openPopup();
+}
+
 // captura click em pesquisar cep
 var botaoPesquisar = document.getElementById("pesquisa_cep");
 botaoPesquisar.addEventListener("click", function () {
@@ -103,6 +122,8 @@ botaoPesquisar.addEventListener("click", function () {
             document.getElementById("respLongitude").innerHTML = pesquisaLongitude;
 
             estacaoProxima = encontrarEstacaoMaisProxima(pesquisaLatitude, pesquisaLongitude);
+
+            map(pesquisaLatitude, pesquisaLongitude, estacaoProxima.estacao.VL_LATITUDE, estacaoProxima.estacao.VL_LONGITUDE);
 
             if (estacaoProxima) {
                 document.getElementById("infoEstacao").innerHTML = "<strong>Estação: </strong>" + 
