@@ -1,5 +1,16 @@
-import { fDateUTC, fDateBR } from './util.js'
+import { fDateBR, fDateUTC, toStrDateBR, prepareData } from './util.js'
 import LineChart from './lineChart.js';
+
+const minDateApiOpenMeteo = new Date('1940-01-01');
+const maxDateApiOpenMeteo = new Date();
+
+const loading = document.getElementById('loading');
+const showLoading = () => {
+    loading.classList.remove('d-none');
+}
+const hideLoading = () => {
+    loading.classList.add('d-none');
+}
 
 $(document).ready(function () {
     const mapState = new Map();
@@ -17,6 +28,22 @@ $(document).ready(function () {
         return true;
     });
 
+    $.validator.addMethod('minDate', (value) => {
+        const date = new Date(fDateUTC(value));
+        if (date.getTime() < minDateApiOpenMeteo.getTime()) {
+            return false
+        }
+        return true;
+    });
+
+    $.validator.addMethod('maxDate', (value) => {
+        const date = new Date(fDateUTC(value));
+        if (date.getTime() > maxDateApiOpenMeteo.getTime()) {
+            return false
+        }
+        return true;
+    });
+
     $("#filtersForm").validate({
         rules: {
             state: {
@@ -28,10 +55,14 @@ $(document).ready(function () {
             startDate: {
                 required: true,
                 compareDates: true,
+                minDate: true,
+                maxDate: true,
             },
             endDate: {
                 required: true,
                 compareDates: true,
+                minDate: true,
+                maxDate: true,
             },
         },
         messages: {
@@ -44,10 +75,14 @@ $(document).ready(function () {
             startDate: {
                 required: 'Defina uma data de inicío!',
                 compareDates: 'Data inícial deve ser menor que a final!',
+                minDate: `A data mínima permitida é ${fDateBR(minDateApiOpenMeteo.toISOString().split('T')[0])}!`,
+                maxDate: `A data maxíma permitida é ${toStrDateBR(maxDateApiOpenMeteo)}!`,
             },
             endDate: {
                 required: 'Defina uma data de fim!',
                 compareDates: 'Data final deve ser maior que a inícial!',
+                minDate: `A data mínima permitida é ${fDateBR(minDateApiOpenMeteo.toISOString().split('T')[0])}!`,
+                maxDate: `A data maxíma permitida é ${toStrDateBR(maxDateApiOpenMeteo)}!`,
             },
         },
         errorPlacement: (label, element) => {
@@ -124,16 +159,18 @@ $(document).ready(function () {
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: '',
-        maxDate: 0
+        maxDate: maxDateApiOpenMeteo,
+        minDate: minDateApiOpenMeteo,
     });
 
 
     $('.datepicker').on('change', (e) => {
         const date = new Date(fDateUTC(e.target.value));
+        const endDatepiker = $.datepicker._getInst(document.getElementById('endDate'));
         if (!(date instanceof Date && !isNaN(date))) {
             e.target.value = "";
+            endDatepiker.settings.minDate = minDateApiOpenMeteo;
         } else {
-            const endDatepiker = $.datepicker._getInst(document.getElementById('endDate'));
             if (e.target.id == 'startDate') {
                 date.setDate(date.getDate() + 1);
                 endDatepiker.settings.minDate = date;
@@ -148,6 +185,7 @@ $(document).ready(function () {
         const idState = $('#stateSelect').val();
         const state = mapState.get(+idState)
         if (city) {
+            showLoading();
             $.ajax({
                 url: `https://nominatim.openstreetmap.org/search.php?q=${city.nome},${state.nome}&format=jsonv2`, success: (result) => {
                     const city = result.find((value) => value.addresstype == "municipality");
@@ -156,14 +194,26 @@ $(document).ready(function () {
                     const startDate = fDateUTC($('#startDate').val());
                     const endDate = fDateUTC($('#endDate').val());
                     $.ajax({
-                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
+                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_max,temperature_2m_min,temperature_2m_mean&timezone=America%2FSao_Paulo`, success: (result) => {
                             const daily = result.daily;
-                            const temp_mean = daily.temperature_2m_mean;
+
                             const time = daily.time;
 
-                            const data = temp_mean.filter(temp => temp != null);
-                            const label = time.slice(0, data.length).map(date => fDateBR(date));
-                            lineChart.update(data, label);
+                            const temp_max = daily.temperature_2m_max;
+                            const temp_mean = daily.temperature_2m_mean;
+                            const temp_min = daily.temperature_2m_min;
+
+                            const quantOfNotNull = temp_mean.filter(temp => temp != null).length;
+
+                            const data = {
+                                max: temp_max.slice(0, quantOfNotNull),
+                                mean: temp_mean.slice(0, quantOfNotNull),
+                                min: temp_min.slice(0, quantOfNotNull),
+                            };
+                            const label = time.slice(0, quantOfNotNull);
+                            const preparedData = prepareData(data, label);
+                            lineChart.update(preparedData.data, preparedData.label);
+                            hideLoading();
                         }
                     });
                 }
@@ -172,4 +222,3 @@ $(document).ready(function () {
         }
     });
 });
-
