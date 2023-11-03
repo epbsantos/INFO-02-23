@@ -64,24 +64,37 @@
     <div class="chart-container mt-5" style="width: 100%; height: 400px;">
       <canvas id="temperature-chart"></canvas>
   </div>
+  <figcaption class="text-center">
+    Gráfico representando o aumento da temperatura global (°C) e o temperatura do mar ao longo do tempo. Dados baseados em pesquisas da NASA e NOAA (National Oceanic and Atmospheric Administration).
+</figcaption>
     
 
     <script>
        var years = ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'];
         var temperatures = [0.7, 0.6, 0.7, 0.7, 0.8, 0.9, 1.0, 0.9, 0.8, 1.0, 1.0, 0.8];
+        var seaLevel = [0.07, 0.33,0.53, 0.41, 0.48, 0.51, 0.61, 0.72, 0.75, 0.69, 0.65, 0.74, 0.72, 0.81];
 
         var ctx = document.getElementById('temperature-chart').getContext('2d');
         var temperatureChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: years,
-                datasets: [{
-                    label: 'Aumento da Temperatura Global (°C)',
-                    data: temperatures,
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    lineTension: 0.1
-                }]
+                datasets: [
+                    {
+                        label: 'Aumento da Temperatura Global (°C)',
+                        data: temperatures,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        lineTension: 0.1
+                    },
+                    {
+                        label: 'Aumento da temperatura do mar (°C)',
+                        data: seaLevel,
+                        fill: false,
+                        borderColor: 'rgb(255, 99, 132)',
+                        lineTension: 0.1
+                    }
+                ]
             },
             options: {
                 responsive: true,
@@ -96,10 +109,9 @@
             }
         });
 
-        temperatureChart.options.scales.xAxes[0].ticks.fontColor = 'white'; // Rótulos do eixo X
-        temperatureChart.options.scales.yAxes[0].ticks.fontColor = 'white'; // Rótulos do eixo Y
-        temperatureChart.options.legend.labels.fontColor = 'white'; // Rótulos da legenda
-
+        temperatureChart.options.scales.xAxes[0].ticks.fontColor = 'white'; 
+        temperatureChart.options.scales.yAxes[0].ticks.fontColor = 'white';
+        temperatureChart.options.legend.labels.fontColor = 'white'; 
 
 
 
@@ -114,13 +126,11 @@
             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
         
-            // Atualize os elementos HTML com os valores da contagem regressiva.
             $("#days").text(days.toString().padStart(2, '0'));
             $("#hours").text(hours.toString().padStart(2, '0'));
             $("#minutes").text(minutes.toString().padStart(2, '0'));
             $("#seconds").text(seconds.toString().padStart(2, '0'));
         
-            // Verifique se a contagem regressiva chegou ao fim.
             if (timeLeft < 0) {
               clearInterval(countdownInterval);
               $("#timer").html("Tempo Esgotado!");
