@@ -21,10 +21,6 @@ h2{
     font-weight: 700;
 }
 
-p{
-    font-weight: 500;
-    font-size: 18px;
-}
 
 .bordas {
     border: 4px;
@@ -163,6 +159,8 @@ section:nth-child(even) {
 p {
     text-align: justify;
     text-indent: 2em;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .timeline {
