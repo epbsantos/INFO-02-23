@@ -19,20 +19,19 @@ section#texto {
     margin: 0 auto;
 }
 
-/* Estilo para as seções com id ímpar (lado esquerdo) */
+
 section:nth-child(odd) {
     float: right;
     position: relative; 
 }
 
-/* Estilo para as seções com id par (lado direito) */
+
 section:nth-child(even) {
     float: left;
     position: relative; 
 }
 
 @media (min-width: 768px) {
-    /* Aplicar estilos para telas grandes (por exemplo, 768px de largura ou mais) */
     section {
         width: 50%;
         padding: 20px;
@@ -44,7 +43,7 @@ section:nth-child(even) {
 .bg1 {
     background-color: #F87E00;
     position: relative;
-    padding-left: 60px; /* Deixa espaço para a elipse */
+    padding-left: 60px; 
 }
 
 .bg1::before {
@@ -54,9 +53,9 @@ section:nth-child(even) {
     background-image: url(img/Ellipse1.jpg); 
     background-size: cover; 
     position: absolute;
-    top: 50%; /* Ajusta a posição verticalmente */
-    left: -50px; /* Posiciona a imagem à esquerda */
-    transform: translateY(-50%); /* Centraliza a imagem na seção */
+    top: 50%; 
+    left: -50px;
+    transform: translateY(-50%);
 }
 
 
@@ -75,13 +74,13 @@ section:nth-child(even) {
     position: absolute;
     top: 50%; 
     right: -50px; 
-    transform: translateY(-50%); /* Centraliza a imagem na seção */
+    transform: translateY(-50%);
 }
 
 .bg3 {
     background-color: #7CAD01;
     position: relative;
-    padding-left: 60px; /* Deixa espaço para a elipse */
+    padding-left: 60px; 
 }
 
 .bg3::before {
@@ -91,9 +90,9 @@ section:nth-child(even) {
     background-image: url(img/Ellipse3.png);
     background-size: cover; 
     position: absolute;
-    top: 50%; /* Ajusta a posição verticalmente */
-    left: -50px; /* Posiciona a imagem à esquerda */
-    transform: translateY(-50%); /* Centraliza a imagem na seção */
+    top: 50%; 
+    left: -50px; 
+    transform: translateY(-50%);
 }
 
 .bg4 {
@@ -111,13 +110,13 @@ section:nth-child(even) {
     position: absolute;
     top: 50%; 
     right: -50px; 
-    transform: translateY(-50%); /* Centraliza a imagem na seção */
+    transform: translateY(-50%); 
 }
 
 .bg5 {
     background-color: #017FB2;
     position: relative;
-    padding-left: 60px; /* Deixa espaço para a elipse */
+    padding-left: 60px;
 }
 
 .bg5::before {
@@ -127,13 +126,13 @@ section:nth-child(even) {
     background-image: url(img/Ellipse5.png);
     background-size: cover; 
     position: absolute;
-    top: 50%; /* Ajusta a posição verticalmente */
-    left: -50px; /* Posiciona a imagem à esquerda */
-    transform: translateY(-50%); /* Centraliza a imagem na seção */
+    top: 50%; 
+    left: -50px;
+    transform: translateY(-50%);
 }
 
 .bg6 {
-    background-color: #8215b4;
+    background-color: #ab3bdf;
 }
 
 p {
@@ -150,11 +149,11 @@ p {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 50%; /* Posição vertical no meio das seções */
-    width: 2px; /* Largura da linha vertical */
-    background-color: #ffffff; /* Cor da linha */
-    margin-top: 12vh; /* faz ela nao aparecer por cima do texto */
-    margin-left: -1px; /* Ajusta a posição central da linha */
+    left: 50%; 
+    width: 2px;
+    background-color: #ffffff; 
+    margin-top: 12vh; 
+    margin-left: -1px; 
 }
 
 @media (max-width: 767px) {
