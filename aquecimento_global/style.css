@@ -6,7 +6,6 @@ body{
     color: #ffffff;
 }
 
-/* Estilo personalizado para alinhar as seções */
 section {
     padding: 20px;
     margin: 30px;
@@ -23,16 +22,24 @@ section#texto {
 /* Estilo para as seções com id ímpar (lado esquerdo) */
 section:nth-child(odd) {
     float: right;
-    width: 50%;
     position: relative; 
 }
 
 /* Estilo para as seções com id par (lado direito) */
 section:nth-child(even) {
     float: left;
-    width: 50%;
     position: relative; 
 }
+
+@media (min-width: 768px) {
+    /* Aplicar estilos para telas grandes (por exemplo, 768px de largura ou mais) */
+    section {
+        width: 50%;
+        padding: 20px;
+        margin: 30px;
+    }
+}
+
 
 .bg1 {
     background-color: #F87E00;
@@ -146,6 +153,32 @@ p {
     left: 50%; /* Posição vertical no meio das seções */
     width: 2px; /* Largura da linha vertical */
     background-color: #ffffff; /* Cor da linha */
-    margin-top: 10vh; /* faz ela nao aparecer por cima do texto */
+    margin-top: 12vh; /* faz ela nao aparecer por cima do texto */
     margin-left: -1px; /* Ajusta a posição central da linha */
+}
+
+@media (max-width: 767px) {
+    .bg1::before,
+    .bg2::after,
+    .bg3::before,
+    .bg4::after,
+    .bg5::before {
+        right: 0;
+        left: 0;
+        background-image: none;
+        
+    }
+    .bg1,
+    .bg2,
+    .bg3,
+    .bg4,
+    .bg5
+     {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        margin: 0, 20px, 20px, 0;
+     }
+    p {
+        text-indent: 0;
+    }
 }
