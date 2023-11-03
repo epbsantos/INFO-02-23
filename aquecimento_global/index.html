@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Perigos do Aquecimento Global</title>
 </head>
 <body class="container">
+    <div id="countdown" class="text-center">
+        <h3>Tempo Restante para Agir:</h3>
+        <div id="timer">
+          <span id="days">00</span> dias
+          <span id="hours">00</span> horas
+          <span id="minutes">00</span> minutos
+          <span id="seconds">00</span> segundos
+        </div>
+      </div>
     <main class="timeline mt-3">
         <h1 class="text-center">Perigos do Aquecimento Global</h1>
+
 
         <section id="1" class="text-white bg1 rounded-3">
             <h2 class="text-center">Aumento do Nível do Mar</h2>
@@ -41,6 +52,38 @@
             <p>É importante reconhecer que muitas dessas práticas insustentáveis estão intrinsecamente ligadas a sistemas econômicos, como o sistema capitalista, que frequentemente prioriza o crescimento econômico em detrimento da sustentabilidade ambiental. Críticos apontam que a busca incessante pelo lucro e o consumo excessivo de recursos naturais são fatores subjacentes ao agravamento do aquecimento global.</p>
             <p>Diante desse cenário, a busca por soluções eficazes requer não apenas a redução das emissões de gases de efeito estufa, mas também uma reflexão sobre os sistemas econômicos e de produção que moldam nosso mundo. A transição para práticas mais sustentáveis e a promoção da conservação ambiental são passos fundamentais para enfrentar o desafio do aquecimento global e assegurar um planeta habitável para as gerações futuras.</p>
         </section>
+        <div class="social-sharing">
+            <a href="#" class="share-button" id="facebook-share">Compartilhar no Facebook</a>
+            <a href="#" class="share-button" id="twitter-share">Compartilhar no Twitter</a>
+          </div>
+          
     </main>
+
+    <script>
+        $(document).ready(function() {
+          var targetDate = new Date('2026').getTime();
+          var countdownInterval = setInterval(function() {
+            var currentDate = new Date().getTime();
+            var timeLeft = targetDate - currentDate;
+        
+            var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+            // Atualize os elementos HTML com os valores da contagem regressiva.
+            $("#days").text(days.toString().padStart(2, '0'));
+            $("#hours").text(hours.toString().padStart(2, '0'));
+            $("#minutes").text(minutes.toString().padStart(2, '0'));
+            $("#seconds").text(seconds.toString().padStart(2, '0'));
+        
+            // Verifique se a contagem regressiva chegou ao fim.
+            if (timeLeft < 0) {
+              clearInterval(countdownInterval);
+              $("#timer").html("Tempo Esgotado!");
+            }
+          }, 1000);
+        });
+        </script>
 </body>
 </html>
