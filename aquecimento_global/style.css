@@ -6,6 +6,29 @@ body{
     color: #ffffff;
 }
 
+
+h1 {
+    font-size: 48px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    font-weight: 800;
+    text-shadow: 5px 5px 8px #1f282d;
+}
+
+h2{
+    font-weight: 700;
+}
+
+p{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.bordas {
+    border: 4px;
+    border-radius: 15px;
+}
+
 section {
     padding: 20px;
     margin: 30px;
@@ -152,7 +175,7 @@ p {
     left: 50%; 
     width: 2px;
     background-color: #ffffff; 
-    margin-top: 15vh; 
+    margin-top: 30vh; 
     margin-left: -1px; 
 }
 
