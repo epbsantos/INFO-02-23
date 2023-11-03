@@ -5,6 +5,10 @@ export function fDateBR(dateUTC) {
     return dateUTC.split('-').reverse().join('/')
 };
 
+export function toStrDateBR(date) {
+    return `0${date.getDate()}`.slice(-2) + `/${date.getMonth()}/${date.getFullYear()}`
+};
+
 function average(arr) { return arr.reduce((p, c) => p + c, 0) / arr.length };
 
 function buildGroups(arr, max) {
@@ -20,7 +24,6 @@ function buildGroups(arr, max) {
             group = group + 1;
         }
     }
-
     return result;
 }
 

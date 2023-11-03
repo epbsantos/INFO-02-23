@@ -1,5 +1,8 @@
-import { fDateUTC, prepareData } from './util.js'
+import { fDateBR, fDateUTC, toStrDateBR, prepareData } from './util.js'
 import LineChart from './lineChart.js';
+
+const minDateApiOpenMeteo = new Date('1940-01-01');
+const maxDateApiOpenMeteo = new Date();
 
 const loading = document.getElementById('loading');
 const showLoading = () => {
@@ -25,6 +28,22 @@ $(document).ready(function () {
         return true;
     });
 
+    $.validator.addMethod('minDate', (value) => {
+        const date = new Date(fDateUTC(value));
+        if (date.getTime() < minDateApiOpenMeteo.getTime()) {
+            return false
+        }
+        return true;
+    });
+
+    $.validator.addMethod('maxDate', (value) => {
+        const date = new Date(fDateUTC(value));
+        if (date.getTime() > maxDateApiOpenMeteo.getTime()) {
+            return false
+        }
+        return true;
+    });
+
     $("#filtersForm").validate({
         rules: {
             state: {
@@ -36,10 +55,14 @@ $(document).ready(function () {
             startDate: {
                 required: true,
                 compareDates: true,
+                minDate: true,
+                maxDate: true,
             },
             endDate: {
                 required: true,
                 compareDates: true,
+                minDate: true,
+                maxDate: true,
             },
         },
         messages: {
@@ -52,10 +75,14 @@ $(document).ready(function () {
             startDate: {
                 required: 'Defina uma data de inicío!',
                 compareDates: 'Data inícial deve ser menor que a final!',
+                minDate: `A data mínima permitida é ${fDateBR(minDateApiOpenMeteo.toISOString().split('T')[0])}!`,
+                maxDate: `A data maxíma permitida é ${toStrDateBR(maxDateApiOpenMeteo)}!`,
             },
             endDate: {
                 required: 'Defina uma data de fim!',
                 compareDates: 'Data final deve ser maior que a inícial!',
+                minDate: `A data mínima permitida é ${fDateBR(minDateApiOpenMeteo.toISOString().split('T')[0])}!`,
+                maxDate: `A data maxíma permitida é ${toStrDateBR(maxDateApiOpenMeteo)}!`,
             },
         },
         errorPlacement: (label, element) => {
@@ -132,17 +159,18 @@ $(document).ready(function () {
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: '',
-        maxDate: 0,
-        minDate: new Date('1940-01-01'),
+        maxDate: maxDateApiOpenMeteo,
+        minDate: minDateApiOpenMeteo,
     });
 
 
     $('.datepicker').on('change', (e) => {
         const date = new Date(fDateUTC(e.target.value));
+        const endDatepiker = $.datepicker._getInst(document.getElementById('endDate'));
         if (!(date instanceof Date && !isNaN(date))) {
             e.target.value = "";
+            endDatepiker.settings.minDate = minDateApiOpenMeteo;
         } else {
-            const endDatepiker = $.datepicker._getInst(document.getElementById('endDate'));
             if (e.target.id == 'startDate') {
                 date.setDate(date.getDate() + 1);
                 endDatepiker.settings.minDate = date;
