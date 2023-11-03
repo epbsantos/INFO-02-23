@@ -1,6 +1,14 @@
 import { fDateUTC, prepareData } from './util.js'
 import LineChart from './lineChart.js';
 
+const loading = document.getElementById('loading');
+const showLoading = () => {
+    loading.classList.remove('d-none');
+}
+const hideLoading = () => {
+    loading.classList.add('d-none');
+}
+
 $(document).ready(function () {
     const mapState = new Map();
     const mapCity = new Map();
@@ -124,7 +132,8 @@ $(document).ready(function () {
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: '',
-        maxDate: 0
+        maxDate: 0,
+        minDate: new Date('1940-01-01'),
     });
 
 
@@ -148,6 +157,7 @@ $(document).ready(function () {
         const idState = $('#stateSelect').val();
         const state = mapState.get(+idState)
         if (city) {
+            showLoading();
             $.ajax({
                 url: `https://nominatim.openstreetmap.org/search.php?q=${city.nome},${state.nome}&format=jsonv2`, success: (result) => {
                     const city = result.find((value) => value.addresstype == "municipality");
@@ -175,6 +185,7 @@ $(document).ready(function () {
                             const label = time.slice(0, quantOfNotNull);
                             const preparedData = prepareData(data, label);
                             lineChart.update(preparedData.data, preparedData.label);
+                            hideLoading();
                         }
                     });
                 }
@@ -183,4 +194,3 @@ $(document).ready(function () {
         }
     });
 });
-
