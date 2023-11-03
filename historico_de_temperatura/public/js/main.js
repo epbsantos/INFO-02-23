@@ -1,4 +1,4 @@
-import { fDateUTC, fDateBR } from './util.js'
+import { fDateUTC, prepareData } from './util.js'
 import LineChart from './lineChart.js';
 
 $(document).ready(function () {
@@ -156,14 +156,25 @@ $(document).ready(function () {
                     const startDate = fDateUTC($('#startDate').val());
                     const endDate = fDateUTC($('#endDate').val());
                     $.ajax({
-                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_mean&&timezone=America%2FSao_Paulo`, success: (result) => {
+                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_max,temperature_2m_min,temperature_2m_mean&timezone=America%2FSao_Paulo`, success: (result) => {
                             const daily = result.daily;
-                            const temp_mean = daily.temperature_2m_mean;
+
                             const time = daily.time;
 
-                            const data = temp_mean.filter(temp => temp != null);
-                            const label = time.slice(0, data.length).map(date => fDateBR(date));
-                            lineChart.update(data, label);
+                            const temp_max = daily.temperature_2m_max;
+                            const temp_mean = daily.temperature_2m_mean;
+                            const temp_min = daily.temperature_2m_min;
+
+                            const quantOfNotNull = temp_mean.filter(temp => temp != null).length;
+
+                            const data = {
+                                max: temp_max.slice(0, quantOfNotNull),
+                                mean: temp_mean.slice(0, quantOfNotNull),
+                                min: temp_min.slice(0, quantOfNotNull),
+                            };
+                            const label = time.slice(0, quantOfNotNull);
+                            const preparedData = prepareData(data, label);
+                            lineChart.update(preparedData.data, preparedData.label);
                         }
                     });
                 }
