@@ -210,3 +210,12 @@ p {
         text-indent: 0;
     }
 }
+
+
+.button-voltar {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 999;
+}
+
