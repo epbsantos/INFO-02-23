@@ -12,7 +12,7 @@ h1 {
     margin-top: 60px;
     margin-bottom: 80px;
     font-weight: 800;
-    text-shadow: 5px 5px 8px #1f282d;
+    text-shadow: 5px 5px 8px #283138;
 }
 
 h2{
@@ -48,6 +48,14 @@ section:nth-child(odd) {
 section:nth-child(even) {
     float: left;
     position: relative; 
+}
+
+.section-hover {
+    transition: transform 0.3s;
+}
+
+.section-hover:hover {
+    transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -151,7 +159,7 @@ section:nth-child(even) {
 }
 
 .bg6 {
-    background-color: #ab3bdf;
+    background-color: #3f505b;
 }
 
 p {
