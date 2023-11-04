@@ -1,3 +1,6 @@
+document.querySelector('#fullview').setAttribute('tabindex', 0);
+document.querySelector('#fullview').focus();
+
 document.addEventListener('DOMContentLoaded', function() {
     var fullview = new Fullview('#fullview', {
         direction: 'horizontal',
