@@ -21,3 +21,12 @@
 #fullview>div a {
     color: #8A5D3C;
 }
+
+.sections {
+    display: flex;
+    flex-direction: column;
+}
+
+.sections>div {
+    min-height: 100vw;
+}
