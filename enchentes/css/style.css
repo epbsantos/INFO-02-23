@@ -1,0 +1,23 @@
+#fullview {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+}
+
+#fullview>div {
+    color: #fff;
+    min-width: 100vw;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    background-color: #333;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.688rem;
+    padding: 25px;
+}
+
+#fullview>div a {
+    color: #8A5D3C;
+}

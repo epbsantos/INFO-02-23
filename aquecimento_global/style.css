@@ -5,3 +5,217 @@ body{
     background-color: #34424B;
     color: #ffffff;
 }
+
+
+h1 {
+    font-size: 48px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    font-weight: 800;
+    text-shadow: 5px 5px 8px #283138;
+}
+
+h2{
+    font-weight: 700;
+}
+
+
+.bordas {
+    border: 4px;
+    border-radius: 15px;
+}
+
+section {
+    padding: 20px;
+    margin: 30px;
+}
+
+section#texto {
+    width: 100%;
+    position: relative;
+    float: none; 
+    clear: both;
+    margin: 0 auto;
+}
+
+
+section:nth-child(odd) {
+    float: right;
+    position: relative; 
+}
+
+
+section:nth-child(even) {
+    float: left;
+    position: relative; 
+}
+
+.section-hover {
+    transition: transform 0.3s;
+}
+
+.section-hover:hover {
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    section {
+        width: 50%;
+        padding: 20px;
+        margin: 30px;
+    }
+}
+
+
+.bg1 {
+    background-color: #F87E00;
+    position: relative;
+    padding-left: 60px; 
+}
+
+.bg1::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px;
+    background-image: url(img/Ellipse1.jpg); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    left: -50px;
+    transform: translateY(-50%);
+}
+
+
+.bg2 {
+    background-color: #EFAF02;
+    position: relative;
+    padding-right: 65px;
+}
+
+.bg2::after {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse2.png); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    right: -50px; 
+    transform: translateY(-50%);
+}
+
+.bg3 {
+    background-color: #7CAD01;
+    position: relative;
+    padding-left: 60px; 
+}
+
+.bg3::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse3.png);
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    left: -50px; 
+    transform: translateY(-50%);
+}
+
+.bg4 {
+    background-color: #137E76;
+    position: relative;
+    padding-right: 65px;
+}
+
+.bg4::after {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse4.png); 
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    right: -50px; 
+    transform: translateY(-50%); 
+}
+
+.bg5 {
+    background-color: #017FB2;
+    position: relative;
+    padding-left: 60px;
+}
+
+.bg5::before {
+    content: ''; 
+    width: 100px; 
+    height: 100px; 
+    background-image: url(img/Ellipse5.png);
+    background-size: cover; 
+    position: absolute;
+    top: 50%; 
+    left: -50px;
+    transform: translateY(-50%);
+}
+
+.bg6 {
+    background-color: #3f505b;
+}
+
+p {
+    text-align: justify;
+    text-indent: 2em;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; 
+    width: 4px;
+    background-color: #ffffff; 
+    margin-top: 38vh; 
+    margin-left: -1px; 
+}
+
+@media (max-width: 767px) {
+    .bg1::before,
+    .bg2::after,
+    .bg3::before,
+    .bg4::after,
+    .bg5::before {
+        right: 0;
+        left: 0;
+        background-image: none;
+        
+    }
+    .bg1,
+    .bg2,
+    .bg3,
+    .bg4,
+    .bg5
+     {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        margin: 0, 20px, 20px, 0;
+     }
+    p {
+        text-indent: 0;
+    }
+}
+
+
+.button-voltar {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 999;
+}
+
