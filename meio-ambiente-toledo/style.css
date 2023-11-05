@@ -13,6 +13,18 @@ ul {
 .card-project {
   background-color: rgb(227, 227, 227);
   width: 45%;
+  border-radius: 10px;
+}
+.project-title,
+.project-resume {
+  border-bottom: solid 1px #999999;
+  padding: 2% 0 2%;
+}
+.navigate-for {
+  padding: 2% 0 0;
+}
+.project-title {
+  font-weight: 500;
 }
 .card-project::before {
   content: "";
