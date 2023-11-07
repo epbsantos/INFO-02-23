@@ -1,8 +1,10 @@
 import { fDateBR, fDateUTC, toStrDateBR, prepareData } from './util.js'
 import LineChart from './lineChart.js';
 
+var maxDate = new Date();
+maxDate.setDate(maxDate.getDate() - 5);
 const minDateApiOpenMeteo = new Date('1940-01-01');
-const maxDateApiOpenMeteo = new Date();
+const maxDateApiOpenMeteo = maxDate;
 
 const loading = document.getElementById('loading');
 const showLoading = () => {
@@ -177,6 +179,8 @@ $(document).ready(function () {
             }
         }
     });
+    const submitError = document.getElementById('submitError');
+    const toastSubmitError =  new bootstrap.Toast(submitError);
 
     $('#filtersForm').on('submit', (e) => {
         e.preventDefault();
@@ -184,41 +188,46 @@ $(document).ready(function () {
         const city = mapCity.get(+idCity);
         const idState = $('#stateSelect').val();
         const state = mapState.get(+idState)
-        if (city) {
-            showLoading();
-            $.ajax({
-                url: `https://nominatim.openstreetmap.org/search.php?q=${city.nome},${state.nome}&format=jsonv2`, success: (result) => {
-                    const city = result.find((value) => value.addresstype == "municipality");
-                    const lat = city.lat;
-                    const lon = city.lon;
-                    const startDate = fDateUTC($('#startDate').val());
-                    const endDate = fDateUTC($('#endDate').val());
-                    $.ajax({
-                        url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_max,temperature_2m_min,temperature_2m_mean&timezone=America%2FSao_Paulo`, success: (result) => {
-                            const daily = result.daily;
+        if ($("#filtersForm").valid()) {
+            try {
+                showLoading();
+                $.ajax({
+                    url: `https://nominatim.openstreetmap.org/search.php?q=${city.nome},${state.nome}&format=jsonv2`, success: (result) => {
+                        console.log('chegou')
+                        const city = result.find((value) => value.addresstype == "municipality");
+                        const lat = city.lat;
+                        const lon = city.lon;
+                        const startDate = fDateUTC($('#startDate').val());
+                        const endDate = fDateUTC($('#endDate').val());
+                        $.ajax({
+                            url: `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}&start_date=${startDate}&end_date=${endDate}&daily=temperature_2m_max,temperature_2m_min,temperature_2m_mean&timezone=America%2FSao_Paulo`, success: (result) => {
+                                const daily = result.daily;
 
-                            const time = daily.time;
+                                const time = daily.time;
 
-                            const temp_max = daily.temperature_2m_max;
-                            const temp_mean = daily.temperature_2m_mean;
-                            const temp_min = daily.temperature_2m_min;
+                                const temp_max = daily.temperature_2m_max;
+                                const temp_mean = daily.temperature_2m_mean;
+                                const temp_min = daily.temperature_2m_min;
 
-                            const quantOfNotNull = temp_mean.filter(temp => temp != null).length;
+                                const quantOfNotNull = temp_mean.filter(temp => temp != null).length;
 
-                            const data = {
-                                max: temp_max.slice(0, quantOfNotNull),
-                                mean: temp_mean.slice(0, quantOfNotNull),
-                                min: temp_min.slice(0, quantOfNotNull),
-                            };
-                            const label = time.slice(0, quantOfNotNull);
-                            const preparedData = prepareData(data, label);
-                            lineChart.update(preparedData.data, preparedData.label);
-                            hideLoading();
-                        }
-                    });
-                }
-            });
-
+                                const data = {
+                                    max: temp_max.slice(0, quantOfNotNull),
+                                    mean: temp_mean.slice(0, quantOfNotNull),
+                                    min: temp_min.slice(0, quantOfNotNull),
+                                };
+                                const label = time.slice(0, quantOfNotNull);
+                                const preparedData = prepareData(data, label);
+                                lineChart.update(preparedData.data, preparedData.label);
+                                hideLoading();
+                            }
+                        });
+                    }
+                });
+            } catch (error) {
+                hideLoading();
+                toastSubmitError.show();
+            }
         }
     });
 });
