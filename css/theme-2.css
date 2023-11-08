@@ -4,10 +4,19 @@ body {
     background: #ececec;
 }
 
+.card_container {
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+    
+}
+
 .card {
-    width: 250px;
+    width: 300px;
     background-color: #eee;
-    border: rgba(0, 0, 0, 0.3) solid 3px;
+    border: rgba(0, 0, 0, 0.5) solid 4px;
     border-radius: 8px;
     padding: 16px;
     margin: 8px;
@@ -36,7 +45,7 @@ body {
 }
 
 #fullview>div:nth-child(even) {
-    background-color: #282c34;
+    background-color: #144065;
     color: #ffffff;
 }
 
