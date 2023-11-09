@@ -5,12 +5,11 @@ body {
 }
 
 .navbar {
-	background-color: rgba(0,0,0,0.5);
+	background-color: transparent;
 	postion: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
 	padding: 20px;
+	z-index: 1000;
 }
 #fotoslide {
 	max-width: 100%;
