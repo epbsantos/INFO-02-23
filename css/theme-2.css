@@ -1,36 +1,8 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #333;
-    background: #ececec;
+	background-color: #f2efde;
 }
-
-.card_container {
-    max-width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px;
-    
-}
-
-.card {
-    width: 300px;
-    background-color: #eee;
-    border: rgba(0, 0, 0, 0.5) solid 4px;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    float: left;
-}
-
-.card h3 {
-    font-size: 0.8em;
-    color: #333;
-    text-decoration: none;
-}
-
 #fullview>div {
-    background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,22 +10,42 @@ body {
     flex-direction: column;
     padding: 25px;
 }
+#section1 {
+	
+	color:#000;
+	background-image: url('../img/bottom_section_initial.jpg');	
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;	
+}
+#section1 h1 {
+	color:#fff;
+	text-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
+	margin-bottom:5px;
+	font-size: 3.5rem;
+}
+#section1 span {
+	color:#fff;
+	text-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
+	margin-bottom:5px;
+	font-size: 3rem;
+}
 
-#section2 {
+#section2 {	
     display: flex !important;
     flex-direction: row !important;
+	background-image: url('../img/bottom_section_two.jpg');	
+	background-size: contain;
+    background-position:  center;
+    background-repeat: no-repeat;
+    height: 100vh;	
 }
 
 #fullview>div:nth-child(even) {
-    background-color: #144065;
-    color: #ffffff;
+    background-color: #e8e8e8;
 }
 
-#fullview h2 {
-    margin: auto;
-    width: 50%;
-    text-align: center;
-}
 
 #navbar {
     position: fixed;
@@ -75,9 +67,7 @@ button {
     border: 1px solid transparent;
     margin-right: 12px;
     margin-bottom: 12px;
-
     border-radius: 8px;
-
 }
 
 button {
