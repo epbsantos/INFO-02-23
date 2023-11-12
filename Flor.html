@@ -1,128 +1,430 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <style>
-        .timeline-container {
-            text-align: center;
-        }
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Noto+Sans+JP:wght@300&family=STIX+Two+Text&display=swap");
+
+
+      .timeline-container {
+        text-align: center;
+        padding: 50px;
         
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      }
+
+      .timeline {
+        padding: 50px;
         
-        .timeline-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .timeline-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+
+      .timeline-item img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        transition: transform 0.3s, filter 0.3s;
+        filter: grayscale(100%);
+        border-radius: 50%;
+      }
+
+      .timeline-item p {
+        display: none;
+      }
+
+      .timeline-item:hover img {
+        transform: scale(1.2);
+        filter: grayscale(0%);
+      }
+
+      .timeline-item:hover p {
+        display: block;
+        clear: left;
+      }
+
+      .click-item {
+            transform: scale(1.2) !important;
+            filter: grayscale(0%) !important;
         }
 
-        .timeline-item img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            transition: transform 0.3s, filter 0.3s;
-            filter: grayscale(100%);
-            border-radius: 50%;
+      h4 {
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  color: #e69e6c;
+  margin: 0;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 2px;
+  color: #746661;;
+  margin: 0;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: "STIX Two Text", serif;
+  letter-spacing: 1px;
+  color: #746661;
+  margin: 0;
+}
+
+
+.timeline-container h4 {
+        font-size: 80px;
+        font-family: "STIX Two Text", serif;
+        letter-spacing: 1px;
+        color: #746661;
+        margin: 0;
         }
 
-        .timeline-item p {
-            display: none;
-        }
+.timeline-container h1 {
+        font-size: 20px;
+        font-family: "Josefin Sans", sans-serif;
+        color: #e66c6c;
+        margin: 0;
+      }
 
-        .timeline-item:hover img {
-            transform: scale(1.2);
-            filter: grayscale(0%);
-        }
 
-        .timeline-item:hover p {
-            display: block;
-            clear: left;
-        }
+.image-tinkerbell {
+    padding-right: 20px;
+}
+
+.quote {
+  min-height: 350px;
+  height: 150px;
+  padding: 40px;
+  border: 2px solid #e66c6c;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-content {
+  padding: 40px;
+  height: fit-content;
+  
+  width: 780px;
+}
+
+.quote-content h3 {
+  padding-bottom: 20px;
+  
+}
+
+.h4-1 {
+  color: #e66c6c;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.h4-2 {
+  color: #e6862d;
+  font-style: italic;
+  margin: 0;
+}
+
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <div class="timeline-container">
-                    <h1>Maior flor do mundo sofre risco de extinção</h1>
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="timeline-container">
+            <div class="sub-title">  
+                <h4 >RAFLESIA</h4>
+            </div>
+            <div class="title">
+                <h1 >A maior flor do mundo sofre risco de extinção!</h1>
+            </div>
+          </div>
+          
+          <div class="tinker-bell">
+            <div class="quote text-center">
+                <div class="image-tinkerbell">
+                    <img src="https://i.dailymail.co.uk/i/pix/2011/03/10/article-0-0AC3BBB4000005DC-803_233x298.jpg" alt="">
                 </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <img src="https://i.imgur.com/sQoe0dP.png" 
-                             alt="Rafflesia"
-                             data-bs-toggle="popover" 
-                             data-bs-placement="bottom"
-                             data-bs-html="true"
-                             data-bs-trigger="hover"
-                             data-bs-content="A maioria das espécies de Rafflesia, que produzem as maiores flores do mundo, está em risco de extinção. <br>
-                                              Muitos chamam-nas de flor-cadáver, devido ao cheiro de carne podre que exalam.">
-                             
-                        
-                    </div>
-                    <div class="timeline-item">
-                        <img src="https://i.imgur.com/1VcK5P3.png" alt="Rafflesia"
-                             alt="Rafflesia"
-                             data-bs-toggle="popover" 
-                             data-bs-placement="bottom"
-                             data-bs-html="true"
-                             data-bs-trigger="hover"
-                             data-bs-content="Consideradas flores parasitas, não possuem raízes, folhas ou caules. <br>
-                                              Também dispensam a fotossíntese, ou seja, não conseguem produzir o próprio alimento. <br>
-                                              Usam filamentos para extrair água e nutrientes de plantas trepadeiras das florestas tropicais.">
-
-                        
-                    </div>
-                    <div class="timeline-item">
-                        <img src="https://i.imgur.com/9zYNg9A.png" alt="Rafflesia"
-                             alt="Rafflesia"
-                             data-bs-toggle="popover" 
-                             data-bs-placement="bottom"
-                             data-bs-html="true"
-                             data-bs-trigger="hover"
-                             data-bs-content="A vantagem de seu cheiro é a atração das moscas que depositam ovos e se desenvolvem em carnes em decomposição. <br>
-                                              Quando percebem que vieram ao engano, os insetos já estão carregando o pólen das Rafflesia, viabilizando sua reprodução.">
-
-                        
-                    </div>
-                    <div class="timeline-item">
-                        <img src="https://i.imgur.com/szVqBNa.png" alt="Rafflesia"
-                             alt="Rafflesia"
-                             data-bs-toggle="popover" 
-                             data-bs-placement="bottom"
-                             data-bs-html="true"
-                             data-bs-trigger="hover"
-                             data-bs-content="Estas flores são virtualmente impossíveis de cultivar a partir de sementes ou fora de sua área de distribuição nativa.">
-
-                        
-                    </div>
-                    <div class="timeline-item">
-                        <img src="https://i.imgur.com/ZDDU7H8.png" alt="Rafflesia"
-                             alt="Rafflesia"
-                             data-bs-toggle="popover" 
-                             data-bs-placement="bottom"
-                             data-bs-html="true"
-                             data-bs-trigger="hover"
-                             data-bs-content="A melhor abordagem para sua conservação é a proteção dos habitats, mas as soluções também passam pela promoção do ecoturismo sustentável.">
-
-                        
-                    </div>
+                <div class="quote-content">
+                  <h3>
+                    "MEU DEUS! As flores REFLESTIAS estão morrendo devido a poluição humana no mundo. <br>
+                    Você pode me ajudar a salva-las? <br>
+                    Apliquei no cursor do mouse minha magia Wica para salvar as pobres flores doentes, veja como elas estão cinzas! <br>
+                    Passe o mouse nas flores para ajudar a salva-las e para você aprender um pouco mais sobre essa linda flor! <br>
+                  </h3>
+                  <h4 class="h4-1">— Tinker Bell</h4>
+                  <h4 class="h4-2">Ajuda Humanitária ONU</h4>
                 </div>
             </div>
+            </div>
+            <div class="timeline">
+            <div class="timeline-item">
+                <img
+                src="https://i.imgur.com/sQoe0dP.png"
+                alt="Rafflesia"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-trigger="hover"
+                data-bs-content="A maioria das espécies de Rafflesia, que produzem as maiores flores do mundo, está em risco de extinção. <br>
+                                Muitos chamam-nas de flor-cadáver, devido ao cheiro de carne podre que exalam."
+              />
+            </div>
+            <div class="timeline-item">
+              <img
+                src="https://i.imgur.com/1VcK5P3.png"
+                alt="Rafflesia"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-trigger="hover"
+                data-bs-content="Consideradas flores parasitas, não possuem raízes, folhas ou caules. <br>
+                                Também dispensam a fotossíntese, ou seja, não conseguem produzir o próprio alimento. <br>
+                                Usam filamentos para extrair água e nutrientes de plantas trepadeiras das florestas tropicais."
+              />
+            </div>
+            <div class="timeline-item">
+              <img
+                src="https://i.imgur.com/9zYNg9A.png"
+                alt="Rafflesia"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-trigger="hover"
+                data-bs-content="A vantagem de seu cheiro é a atração das moscas que depositam ovos e se desenvolvem em carnes em decomposição. <br>
+                    Quando percebem que vieram ao engano, os insetos já estão carregando o pólen das Rafflesia, viabilizando sua reprodução."
+              />
+            </div>
+            <div class="timeline-item">
+              <img
+                src="https://i.imgur.com/szVqBNa.png"
+                alt="Rafflesia"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-trigger="hover"
+                data-bs-content="Estas flores são virtualmente impossíveis de cultivar a partir de sementes ou fora de sua área de distribuição nativa."
+              />
+            </div>
+            <div class="timeline-item">
+              <img
+                src="https://i.imgur.com/6ERrzse.png"
+                alt="Rafflesia"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-html="true"
+                data-bs-trigger="hover"
+                data-bs-content="A melhor abordagem para sua conservação é a proteção dos habitats, mas as soluções também passam pela promoção do ecoturismo sustentável."
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-    </script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    >
+      
+  </script>
+
+  <script>
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+      const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
+    
+      // mouse ticker bell //
+      
+// <![CDATA[
+var colour="#a800ff";
+var sparkles=120;
+
+/****************************
+*  Tinkerbell Magic Sparkle *
+* (c) 2005 mf2fm web-design *
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (x!=ox || y!=oy) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      starx[i]+=(i%5-2)/5;
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tinyx[i]+=(i%5-2)/5;
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  set_scroll();
+  y=(e)?e.pageY:event.y+sdown;
+  x=(e)?e.pageX:event.x+sleft;
+}
+
+function set_scroll() {
+  if (typeof(self.pageYOffset)=="number") {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+	sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  if (typeof(self.innerWidth)=="number") {
+    swide=self.innerWidth;
+    shigh=self.innerHeight;
+  }
+  else if (document.documentElement && document.documentElement.clientWidth) {
+    swide=document.documentElement.clientWidth;
+    shigh=document.documentElement.clientHeight;
+  }
+  else if (document.body.clientWidth) {
+    swide=document.body.clientWidth;
+    shigh=document.body.clientHeight;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  div.style.backgroundColor=colour;
+  return (div);
+}
+// ]]>
+</script>
+
+  </body>
 </html>
