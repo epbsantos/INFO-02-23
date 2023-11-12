@@ -21,15 +21,17 @@ body {
 }
 #section1 h1 {
 	color:#000;
-	text-shadow: 1px 0 10px rgba(255, 255, 255, 0.5);
+	text-shadow: 2px 0 10px rgba(255, 255, 255, 0.10);
 	margin-bottom:5px;
 	font-size: 3.5rem;
+	
 }
 #section1 span {
 	color:#000;
-	text-shadow: 1px 0 10px rgba(255, 255, 255, 0.5);
+	text-shadow: 2px 0 10px rgba(255, 255, 255, 0.10);
 	margin-bottom:5px;
 	font-size: 3rem;
+	font-weight: 700;
 }
 
 #section2 {	
@@ -52,7 +54,7 @@ body {
 	top: 0;
 	z-index: 1020;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     padding: 20px;
 }
 
@@ -66,7 +68,7 @@ button {
     display: inline-block;
     padding: 8px 17px;
     background-color: #ffffff;
-    box-shadow: 5px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
     border: 1px solid transparent;
     margin-right: 12px;
     margin-bottom: 12px;
@@ -90,7 +92,7 @@ button {
 }
 
 #navbar li a.active {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #down {
@@ -112,4 +114,14 @@ button {
     height: 11px;
     transform: rotate(45deg);
     background-color: #bdbdbd;
+}
+
+#modalContent object {
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	display: block;
+	border: none;
+	width: 95vw;
+	height: 65vh;
 }
