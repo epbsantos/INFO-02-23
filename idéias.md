@@ -62,3 +62,7 @@ Mostrar o histórico de informações do clima através de um determinado CEP.
 - [O IMPACTO AMBIENTAL DO USO DE AGROTÓXICOS NO MEIO AMBIENTE E NA SAÚDE DOS TRABALHADORES RURAIS](https://periodicos.ufsm.br/revistadireito/article/view/8280)
 - [IMPACTOS DE AGROTÓXICOS SOBRE O MEIO AMBIENTE E A SAÚDE HUMANA](https://seer.sct.embrapa.br/index.php/cct/article/view/26296)
 
+## Rafflesia - Maior flor do mundo sofre risco de extinção
+- [FLOR CADÁVER CORRE RISCO DE EXTINÇÃO](https://revistaoeste.com/mundo/flor-cadaver-corre-risco-de-extincao-entenda)
+- [As flores-cadáver, as maiores do mundo, estão em risco de extinção](https://www.publico.pt/2023/09/21/azul/noticia/florescadaver-maiores-mundo-estao-risco-extincao-2064129)
+
