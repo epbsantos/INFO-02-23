@@ -1,5 +1,5 @@
 html { 
-	heigth: 500vh;
+	heigth: 500%;
 }
 .container {
 	max-width: 1280px;
@@ -12,7 +12,7 @@ html {
 	
 }
 .background {
-	heigth: 100vh;
+	heigth: 100%;
 	background-image: url(Img/background.png);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -40,7 +40,7 @@ body {
 }
 
 .slide {
-	width: 250%;
+	width: 100%;
 	height: 100%;
 	position: absolute;
 	opacity: 0;
