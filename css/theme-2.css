@@ -20,14 +20,14 @@ body {
     height: 100vh;	
 }
 #section1 h1 {
-	color:#fff;
-	text-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
+	color:#000;
+	text-shadow: 1px 0 10px rgba(255, 255, 255, 0.5);
 	margin-bottom:5px;
 	font-size: 3.5rem;
 }
 #section1 span {
-	color:#fff;
-	text-shadow: 1px 0 10px rgba(0, 0, 0, 0.5);
+	color:#000;
+	text-shadow: 1px 0 10px rgba(255, 255, 255, 0.5);
 	margin-bottom:5px;
 	font-size: 3rem;
 }
@@ -48,6 +48,9 @@ body {
 
 
 #navbar {
+	position: sticky;
+	top: 0;
+	z-index: 1020;
     position: fixed;
     width: 100%;
     padding: 20px;
