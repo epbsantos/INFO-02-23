@@ -74,7 +74,7 @@
 					<div class="container">
 						<div class="row row-cards">
 							<div class="col-md-6 col-xl-3">
-								<a class="card card-link" href="Linha%20do%20Tempo%20Animais">
+								<a href="#" onclick="openModal()" class="card card-link" data-bs-toggle="modal" data-bs-target="#modal-endangered-animal">
 									<div class="">  
 										<img class="card-img-top" src="./img/especies_extincao.jpg">
 										<div class="card-body text-center">
@@ -236,11 +236,29 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<!-- Janela modal -->
+	<div class="modal modal-blur fade" id="modal-endangered-animal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-full-width modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Animais em extinção no Brasil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+			<p>
+				<div id="modalContent">
+				</div>
+			</p>
+		  </div>
+        </div>
+      </div>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/fullview.min.js"></script>
+	<script src="js/tabler.min.js"></script>
 
     <script>
 
@@ -285,6 +303,20 @@
 
         }); 
     </script>
+	
+	
+	<script>
+		// Função para abrir a janela modal dos Animais em extinção
+		function openModal() {
+			// Obtém a janela modal
+			var modal = document.getElementById("modal-endangered-animal");
+
+			// Carrega o conteúdo do arquivo HTML na janela modal
+			 document.getElementById("modalContent").innerHTML = '<object type="text/html" data="Linha%20do%20Tempo%20Animais/index.html"></object>';
+		}
+	</script>
+	
+
 
 </body>
 
