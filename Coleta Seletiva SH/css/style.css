@@ -12,7 +12,7 @@ html {
 	
 }
 .background {
-	background-image
+	background-image: url(Img/background.png);
 }
 body {
 	margin: 0;
