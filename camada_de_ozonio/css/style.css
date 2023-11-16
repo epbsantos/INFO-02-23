@@ -32,6 +32,17 @@ body{
   background: var(--body-bg-color);
 }
 
+section{
+  position: relative;
+}
+
+.section{
+  color: var(--white-color);
+  background: var(--section-bg-color);
+  padding: 35px 200px;
+  transition: 0.3s ease;
+}
+
 /*------ Header ------*/
 header{
   z-index: 999;
@@ -42,6 +53,8 @@ header{
   left: 0;
   display: flex;
   justify-content: center;
+  transition: 0.5s ease;
+  transition-property: height, background;
 }
 
 header .nav-bar{
@@ -52,6 +65,13 @@ header .nav-bar{
   justify-content: space-between;
   padding: 0 200px;
   transition: 0.3s ease;
+}
+
+header.sticky{
+  height: calc(2.5rem + 1rem);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-close-btn, .nav-menu-btn{
@@ -238,5 +258,34 @@ header .nav-bar{
 }
 
 /*------ Media icons ------*/
+.media-icons{
+  z-index: 999;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 90px;
+}
+
+.media-icons a{
+  color: var(--white-color);
+  font-size: 1.7em;
+  margin: 10px 0;
+}
 
 /*------ About section ------*/
+.about h2{
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.about p{
+  margin: 25px 0;
+}
+
+
+/*------ Media queries (max-width: 1100px) ------*/
+@media screen and (max-width: 1100px){
+
+}
