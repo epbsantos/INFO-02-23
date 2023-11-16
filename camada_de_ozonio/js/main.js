@@ -27,3 +27,9 @@ document.getElementById("myButton3").onclick = function () {
 document.getElementById("myButton4").onclick = function () {
   location.href = "https://www.bbc.com/portuguese/geral-59053884#:~:text=Os%20pesquisadores%20estimam%20que%20até,estar%20totalmente%20recomposta%20em%202060.";
 };
+
+//Navigation bar effects on scroll
+window.addEventListener("scroll", function(){
+  const header = document.querySelector("header");
+  header.classList.toggle("sticky", window.scrollY > 0);
+});
