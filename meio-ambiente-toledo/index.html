@@ -8,31 +8,109 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Montserrat:wght@600;700&family=Oswald:wght@200;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <img src="lago.jpg" class="img-fluid w-100 h-100" style="position: absolute;">
     <div class="container">
-        <div class="h1 w-100 text-center py-4 text-white">
+        <div class="h1 w-100 text-center py-4 title">
             Projetos ambientais de Toledo
         </div>
 
-        <div id="timeline">
+
+        <div id="carouselIndicators" class="carousel slide py-5 m-5">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="project-title h4">Dezembro - 2019</div>
+                    <div class="project-title h4">Educação ambiental: Sanga Cerro Corá</div>
+                    <div class="project-resume">Projeto desenvolvido pela Universidade Estadual do Oeste do
+                        Paraná (Unioeste), que promove a educação ambiental em parceria com o
+                        Colégio Estadual Novo Horizonte na proteção da Sanga Cerro Corá em Toledo</div>
+                    <div class="navigate-for"><a href="https://www.toledo.pr.gov.br/old/noticia/voluntarios-limpam-a-sanga-pyahu-cerro-cora" target="_blank">Saiba mais</a></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title h4">Junho - 2017</div>
+                    <div class="project-title h4">Caminhada e limpeza na Sanga Cerro Corá</div>
+                    <div class="project-resume">O evento foi realizado pela Secretaria de Meio Ambiente,
+                        Secretaria de Educação, Núcleo Regional de Educação, Sanepar e Colégio Novo Horizonte
+                        com o objetivo de recolher o lixo jogado na área de manancial, além de promover
+                        orientações e gerar uma reflexão sobre a importância dos cuidados nas nascentes e rios
+                    </div>
+                    <div class="navigate-for"><a href="https://www.toledo.pr.gov.br/old/noticia/caminhada-e-limpeza-na-sanga-cerro-cora-recolhe-15-tonelada-de-lixo" target="_blank">Saiba mais</a></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title h4">Junho - 2021</div>
+                    <div class="project-title h4">Inquérito Civil: Danos ao meio ambiente</div>
+                    <div class="project-resume">Inquérito civil instaurado pelo Ministério Público do Paraná na
+                        luta contra os danos ao meio ambiente.</div>
+                    <div class="navigate-for"><a href="https://mppr.mp.br/Editoria/Meio-Ambiente" target="_blank">Saiba mais</a></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title h4">Outubro - 2022</div>
+                    <div class="project-title h4">Florir Toledo</div>
+                    <div class="project-resume">O Projeto Florir Toledo é um programa de fortalecimento
+                        comunitário que tem como público-alvo adolescentes em situação de vulnerabilidade.
+
+                        O projeto capacita profissionalmente os jovens participantes com ações ativas para a
+                        proteção do meio ambiente, incentivando o protagonismo juvenil e fomentando o
+                        desenvolvimento social e econômico dos mesmos.</div>
+                    <div class="navigate-for"><a href="https://www.toledo.pr.gov.br/portais/programas/florir-toledo" target="_blank">Saiba mais</a></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="project-title h4">Maio - 2023</div>
+                    <div class="project-title h4">Dia Mundial da Reciclagem mobiliza comunidade em Toledo</div>
+                    <div class="project-resume">Em alusão ao Dia Mundial da Reciclagem, comemorado no dia 17 de
+                        maio, o Núcleo dos Objetivos de Desenvolvimento Sustentável (Núcleo ODS) de Toledo, em
+                        parceria com a Secretaria de Meio Ambiente e apoio da eMiner, realizou a campanha
+                        "Eletrônico Não é Lixo” e a “Blitz da Sustentabilidade". </div>
+                    <div class="navigate-for"><a href="https://www.toledo.pr.gov.br/noticias/meio-ambiente/dia-mundial-da-reciclagem-mobiliza-comunidade-em-toledo#:~:text=Em%20alus%C3%A3o%20ao%20Dia%20Mundial,a%20%E2%80%9CBlitz%20da%20Sustentabilidade%22." target="_blank">Saiba mais</a></div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <!-- <div id="timeline">
             <ul class="d-flex flex-column">
                 <li class="d-flex">
                     <div class="card-project py-3 mr-auto">
                         <div class="mx-4">
-                            <div class="project-title">Educação ambiental: Sanga Cerro Corá</div>
+                            <div class="project-title h2">Educação ambiental: Sanga Cerro Corá</div>
                             <div class="project-resume">Projeto desenvolvido pela Universidade Estadual do Oeste do
                                 Paraná (Unioeste), que promove a educação ambiental em parceria com o
                                 Colégio Estadual Novo Horizonte na proteção da Sanga Cerro Corá em Toledo</div>
@@ -97,7 +175,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>

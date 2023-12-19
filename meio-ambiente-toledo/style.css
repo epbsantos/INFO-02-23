@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #aaf2bd, #1b532e);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #aaf2bd;
     color: #333;
     margin: 0;
     padding: 0;
@@ -14,19 +14,12 @@ header {
 }
 
 h1 {
-    color: #fff; 
+    color: #fff;
+    
 }
 
-.content-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-h2, h3 {
+h2,
+h3 {
     color: #2ecc71;
 }
 
@@ -40,3 +33,55 @@ ul {
     text-decoration: underline;
     color: #3498db;
 }
+
+.project-resume {
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    opacity: 1;
+    color: black;
+    font-weight: 450;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-inner {
+    height: 60vh;
+}
+
+.project-title {
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 2px 2px 4px rgba(254, 254, 254, 0.5);
+}
+
+.carousel {
+    border: 1.5px solid rgba(245, 222, 179, 0.991);
+    background-color: rgba(192, 183, 167, 0.478);
+    border-radius: 15px;
+}
+
+.navigate-for {
+    align-self: flex-end;
+    margin-right: 20vw;
+}
+
+.title {
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(254, 254, 254, 0.5);
+}
+
